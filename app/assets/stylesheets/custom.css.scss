@@ -1,15 +1,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneus */
+.debug_dump {
+  clear:  both;
+  float:  left;
+  width:  100%;
+  margin-top: 45px;
+  @include  box_sizing;
+}
+
 /* Header */
 
 .navbar-inverse {
-	position: absolute;
+	position: relative;
 	top: 0;
 	right: 0;
 	left: 0;
 	z-index: 20;
   border-radius: 0px;
+  margin-bottom: 0px;
 }
 
 
@@ -18,6 +34,37 @@
   .jumbotron{
    .container {
       max-width: 100%;
-      margin-top: 50px;
+      margin-top: 40px;
     }
   }
+
+/* Users */
+
+  /* new */ 
+
+    /* form */
+      .form-signin {
+        max-width: 500px;
+        padding: 15px;
+        margin: 0 auto;
+        .form-control {
+          margin-bottom: 10px;
+        }
+      }
+
+      /* error_explanation */
+
+        #error_explanation {
+          color: red;
+          ul {
+            color: red;
+            margin: 0 0 30px 0;
+          }
+        }
+
+        .field_with_errors {
+          @extend .has-error;
+          .form-control {
+            color: $state-danger-text;
+          }
+        }
