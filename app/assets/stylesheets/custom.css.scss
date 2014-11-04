@@ -1,0 +1,24 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Header */
+
+.navbar-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
+}
+.navbar {
+  border-radius: 0px;
+}
+
+/* Home */
+
+  .jumbotron{
+   .container {
+      max-width: 100%;
+      margin-top: 50px;
+    }
+  }
