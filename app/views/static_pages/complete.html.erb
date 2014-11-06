@@ -1,0 +1,12 @@
+<%= provide(:title, "Registro Completo") %>
+<div class="container">
+  <div class="page-header">
+    <h1>Gracias Por Registrarse</h1>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+      </div>
+    </div>
+  </div>
+
+  <%= link_to "Empezar", profile_path(@user.nickname), class: "btn btn-primary btn-lg"%>
+</div>
