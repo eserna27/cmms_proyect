@@ -3,24 +3,26 @@
   <div class="page-header">
     <h1>Registro <small>Registro Hospital</small></h1>
     <div class="progress">
-      <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
       </div>
     </div>
   </div>
-  <%= form_for(@hospital, html: { class: "form-signin",
+  <%= form_for(@hospital, url: plan_hospitals_path, html: { class: "form-signin",
             style:"border-radius: 10px; background-color: #eeeeee; max-width: 650px;" })  do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <h2 class="form-signin-heading">Teclee los datos del hospital</h2>
       <%= f.text_field :name, class: "form-control", placeholder: "Nombre",
                                             required: true, autofocus: true %>  
+      <%= f.text_field :nickname, class: "form-control", placeholder: "Nickname",
+                                            required: true %>  
       <div class="panel panel-default">
         <div class="panel-heading">
           Dirección
         </div>
         <div class="panel-body">
           <div class="col-xs-6">
-            <%= f.text_field :street, class: "form-control", placeholder: "Nombre",
-                                                  required: true, autofocus: true %>  
+            <%= f.text_field :street, class: "form-control", placeholder: "Calle",
+                                                  required: true %>  
           </div>
           <div class="col-xs-6">
             <%= f.text_field :number, class: "form-control", placeholder: "Numero",
@@ -44,7 +46,6 @@
           </div>
         </div>
       </div>   
-      
     <%= f.submit "Guardar Datos", class: "btn btn-lg btn-primary btn-block" %> 
   <% end %>
 </div>

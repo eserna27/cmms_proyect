@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_to profile_path(user.nickname)
   	else
       flash.now[:danger] = 'Usuario incorrecto'
 	  	render 'new'

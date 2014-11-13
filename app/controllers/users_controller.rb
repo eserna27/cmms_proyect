@@ -9,18 +9,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    #@user = User.new(user_params)
-    #if @user.save
-    #  log_in @user
-    #  flash.now[:success] = "Bienvenido al sistema"
-      redirect_to new_hospital_path
-    #else
-    #  render 'new'
-    #end
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to new_plan_hospital_user_account_path(params[:plan_id],params[:hospital_id],@user.id)
+    else
+      render 'new'
+    end
   end
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
     end
 end

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105231304) do
+ActiveRecord::Schema.define(version: 20141106230035) do
+
+  create_table "accounts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.integer  "hospital_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "hospitals", force: true do |t|
     t.string   "name"
@@ -23,12 +31,17 @@ ActiveRecord::Schema.define(version: 20141105231304) do
     t.string   "country"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "nickname"
   end
+
+  add_index "hospitals", ["nickname"], name: "index_hospitals_on_nickname", unique: true
 
   create_table "plans", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.float    "cost"
+    t.text     "description"
   end
 
   create_table "users", force: true do |t|
@@ -42,5 +55,6 @@ ActiveRecord::Schema.define(version: 20141105231304) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true
 
 end
