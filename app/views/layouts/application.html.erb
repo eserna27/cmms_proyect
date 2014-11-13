@@ -24,6 +24,11 @@
         </div>   
       </div> 
     <% else %>
+    <style>
+      body {
+      background-color: #fff;
+     }
+    </style>
         <%= render 'layouts/header' %>
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>" style=><%= message %></div>
