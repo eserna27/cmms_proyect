@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
   	@account = Account.new(account_params)
     @user = User.find(@account.user_id)
     if @account.save
-      redirect_to user_profile_path(@user.nickname)
+      redirect_to profile_path(@user.nickname)
     else
       render 'new'
     end
