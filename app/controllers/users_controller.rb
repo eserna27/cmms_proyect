@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @hospital = Hospital.find(params[:hospital_id])
   end
 
   def create
@@ -19,6 +20,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation, :hospital_id)
     end
 end
