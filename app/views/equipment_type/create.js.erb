@@ -1,0 +1,6 @@
+$("#equipment_type").find(".chosen-container").remove();
+$("#equipment_type").find("select").remove();
+$("<%= escape_javascript(render 'equipment_type/equipment_type', equipment_types: @equipment_types) %>").appendTo("#equipment_type");
+$('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
+	width: "100%", placeholder_text_single: 'Seleccione una opción'});
+$('#EquipmentTypeModal').remove();

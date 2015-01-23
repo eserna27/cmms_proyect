@@ -1,0 +1,6 @@
+$("#area").find(".chosen-container").remove();
+$("#area").find("select").remove();
+$("<%= escape_javascript(render 'areas/areas', areas: @areas) %>").appendTo("#area");
+$('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
+width: "100%", placeholder_text_single: 'Seleccione una opción'});
+$('#AreaModal').remove();

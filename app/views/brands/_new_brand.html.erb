@@ -1,0 +1,29 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#BrandModal"
+style="margin-left: 10px; margin-bottom: 16px; height: 34px; width: 100%;">
+  Nueva Marca
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="BrandModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva Marca</h4>
+        </div>
+        <div class="modal-body">
+        <%= form_for(@brand, remote: true, url: brands_path) do |m| %>
+            <h2 class="form-signin-heading">Teclee los datos</h2>
+            <%= m.text_field :name, class: "form-control", placeholder: "Nombre de la Marca",
+                                                required: true, autofocus: true, style: "margin-bottom: 10px;" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= m.submit "Guardar", class: "btn btn-primary" %> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

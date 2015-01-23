@@ -1,0 +1,3 @@
+module SubareasHelper
+
+end

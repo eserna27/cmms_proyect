@@ -1,0 +1,4 @@
+<%= select_tag "equipment_type_id",  options_from_collection_for_select(equipment_types, "id", "name"),
+               include_blank: true, class: 'chosen-select',
+                data: {placeholder: 'Seleccione Tipo de equipo'} 
+%>

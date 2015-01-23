@@ -1,12 +1,26 @@
 <ul class="nav navbar-nav side-nav">
     <li>
-        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+        <%= link_to root_path, id: "" do %>
+          <i class="fa fa-fw fa-dashboard"></i> 
+          Dashboard
+        <% end %>
     </li>
     <li>
-      <%= link_to root_path, id: "" do %>
-			  <i class="fa fa-fw fa-stethoscope"></i>
-			  Equipo
-			<% end %>
+			 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-stethoscope"></i> Equipo <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="demo" class="collapse">
+            <li>
+              <%= link_to  hospital_equipment_index_path(current_hospital), id: "" do %>
+                <i class="fa fa-fw fa-cubes"></i> 
+                Todos
+              <% end %>
+            </li>
+            <li>
+          		<%= link_to  new_hospital_equipment_path(current_hospital) do %>
+			          <i class="fa fa-fw fa-plus-circle"></i> 
+			          Nuevo Equipo
+			        <% end %>
+            </li>
+        </ul>
     </li>
         <li>
       <%= link_to root_path, id: "" do %>
@@ -14,28 +28,6 @@
 			  Usuarios
 			<% end %>
     </li>
-    <li>
-        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-    </li>
-    <li>
-        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-    </li>
-    <li>
-        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-    </li>
-    <li>
-        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-        <ul id="demo" class="collapse">
-            <li>
-                <a href="#">Dropdown Item</a>
-            </li>
-            <li>
-                <a href="#">Dropdown Item</a>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-    </li>
+    
 </ul>
 <!-- /.navbar-collapse -->

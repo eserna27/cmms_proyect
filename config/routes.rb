@@ -9,7 +9,23 @@ Rails.application.routes.draw do
   get     'noaccount'   =>  'static_pages#noaccount'
 
   resources :users 
+  resources :equipment_type
+  resources :brands
+  resources :equipment 
   resources :hospitals
+  resources :areas
+  resources :subareas
+  resources :hospitals do
+    resources :floors, only: [] do
+      get :areas, on: :member
+    end
+    resources :areas, only: [] do
+      get :subareas, on: :member
+    end
+    resources :equipment
+    resources :equipment_type
+    resources :brands
+  end
   resources :plans
   resources :accounts 
   resources :plans do

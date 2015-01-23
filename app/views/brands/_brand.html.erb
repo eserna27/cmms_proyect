@@ -1,0 +1,3 @@
+<%= select_tag "brand_id",  options_from_collection_for_select(brands, "id", "name"),
+               include_blank: true, class: 'chosen-select', data: {placeholder: 'Seleccione Marca'}
+%>

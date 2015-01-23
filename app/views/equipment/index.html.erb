@@ -1,0 +1,26 @@
+<%= provide(:title, "Equipos") %>
+
+<div class="page-header">
+    <h2>Equipos</h2>
+</div>
+
+<div class="media">
+	<div class="media-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Modelo</th>
+					<th>Num. Serie</th>
+					<th>Marca</th>
+				</tr>
+			</thead>
+			<% @equipments.each do |equipment| %>
+				<tr>
+					<td><%= equipment.model %></td>
+					<td><%= equipment.serial_number %></td>
+					<td><%= equipment.brand_id %></td>
+				</tr>
+		 	<% end %> 
+		</table>
+	</div>
+</div>

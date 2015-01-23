@@ -1,0 +1,11 @@
+	$("#area").find(".chosen-container").remove();
+	$("#area").find("select").remove();
+	$("#subarea").find(".chosen-container").remove();
+    $("#subarea").find("select").remove();
+    $("#new_subarea").find("#new_subarea_modal").remove();
+<% if !@areas.nil? %>
+	$("<%= escape_javascript(render 'areas/areas', areas: @areas) %>").appendTo("#area");
+	$('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
+	width: "100%", placeholder_text_single: 'Seleccione una opción'});
+	$("<%= escape_javascript(render 'subareas/new_subarea', areas: @areas) %>").appendTo("#new_subarea");
+<% end %>

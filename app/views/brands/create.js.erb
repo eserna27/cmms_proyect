@@ -1,0 +1,6 @@
+$("#brand").find(".chosen-container").remove();
+$("#brand").find("select").remove();
+$("<%= escape_javascript(render 'brands/brand', brands: @brands) %>").appendTo("#brand");
+$('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
+	width: "100%", placeholder_text_single: 'Seleccione una opción'});
+$('#BrandModal').remove();

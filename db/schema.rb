@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106230035) do
+ActiveRecord::Schema.define(version: 20150123001937) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,45 @@ ActiveRecord::Schema.define(version: 20141106230035) do
     t.integer  "hospital_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "areas", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_contact_id"
+    t.integer  "floor"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "hospital_id"
+  end
+
+  create_table "brands", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "equipment", force: true do |t|
+    t.integer  "equipment_type_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "model"
+    t.string   "serial_number"
+    t.integer  "year_manufacture"
+    t.integer  "lifetime"
+    t.integer  "brand_id"
+    t.integer  "hospital_id"
+    t.integer  "subarea_id"
+  end
+
+  create_table "equipment_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "cuadro_basico"
+    t.string   "umdns"
+    t.string   "gmnd"
   end
 
   create_table "hospitals", force: true do |t|
@@ -32,6 +71,7 @@ ActiveRecord::Schema.define(version: 20141106230035) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "nickname"
+    t.integer  "floors"
   end
 
   add_index "hospitals", ["nickname"], name: "index_hospitals_on_nickname", unique: true
@@ -44,6 +84,21 @@ ActiveRecord::Schema.define(version: 20141106230035) do
     t.text     "description"
   end
 
+  create_table "subareas", force: true do |t|
+    t.string   "name"
+    t.integer  "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -52,6 +107,7 @@ ActiveRecord::Schema.define(version: 20141106230035) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "nickname"
+    t.integer  "hospital_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
