@@ -16,3 +16,15 @@ $(document).on "change", "#area_id", ->
     currentPath = location.pathname
     areasPath = "#{currentPath.replace('equipment/new','')}areas/#{area}/subareas.js"
     $.get(areasPath)
+
+$(document).on "change", "#equipment_type_id", ->
+    id = $(this).val()
+    $("#hidden-fields").find("#equipment_equipment_type_id").val(id);
+
+$(document).on "change", "#brand_id", ->
+    id = $(this).val()
+    $("#hidden-fields").find("#equipment_brand_id").val(id);
+
+$(document).on "change", "#subarea_id", ->
+    id = $(this).val()
+    $("#hidden-fields").find("#equipment_subarea_id").val(id);

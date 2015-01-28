@@ -1,9 +1,16 @@
 class AccountsController < ApplicationController
-  
+  include HospitalsHelper
   def new
   	@plan = Plan.find(params[:plan_id])
   	@hospital = Hospital.find(params[:hospital_id])
   	@user = User.find(params[:user_id])
+  end
+
+  def show
+    @account = Account.find_by(hospital_id: current_hospital.id)
+    @user = User.find(@account.user_id)
+    @hospital = Hospital.find(@account.hospital_id)
+    @plan = Plan.find(@account.plan_id)
   end
 
   def create

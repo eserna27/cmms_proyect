@@ -1,3 +1,3 @@
 class EquipmentType < ActiveRecord::Base
-	belongs_to :equipment
+	has_many :equipment
 end

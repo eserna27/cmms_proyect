@@ -1,11 +1,13 @@
 	$("#area").find(".chosen-container").remove();
 	$("#area").find("select").remove();
+	$("#area").find(".btn").remove();
+	$("#subarea_modal").find("#new_subarea_modal").remove();
 	$("#subarea").find(".chosen-container").remove();
     $("#subarea").find("select").remove();
-    $("#new_subarea").find("#new_subarea_modal").remove();
 <% if !@areas.nil? %>
 	$("<%= escape_javascript(render 'areas/areas', areas: @areas) %>").appendTo("#area");
+	$("<%= escape_javascript(link_to 'Nueva Área', '#AreaModal', :class => 'btn', 'data-toggle' => 'modal') %>").appendTo("#area");
 	$('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
 	width: "100%", placeholder_text_single: 'Seleccione una opción'});
-	$("<%= escape_javascript(render 'subareas/new_subarea', areas: @areas) %>").appendTo("#new_subarea");
+	$("<%= escape_javascript(render 'subareas/new_subarea', areas: @areas) %>").appendTo("#subarea_modal");
 <% end %>

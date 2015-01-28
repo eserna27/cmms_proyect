@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
+  belongs_to :account
   belongs_to :hospital
   before_save { self.email = email.downcase }
 	validates :name, presence: true, length: { maximum: 50 }

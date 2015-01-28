@@ -50,6 +50,10 @@
         }
     }
 
+    .page-header {
+      margin: 47px 0 10px;
+    }
+
 /* Top Navigation */
 
 .top-nav {
@@ -197,7 +201,13 @@ ul.alert-dropdown {
           margin-bottom: 10px;
         }
       }
-
+      .form-signin-equipment {
+        padding: 15px;
+        margin: 0 auto;
+        .form-control {
+          margin-bottom: 10px;
+        }
+      }
       /* error_explanation */
 
         #error_explanation {

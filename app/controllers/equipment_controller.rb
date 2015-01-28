@@ -11,16 +11,13 @@ class EquipmentController < ApplicationController
     @areas = current_hospital.areas
     @area = Area.new
     @subarea = Subarea.new
+    @hospital = Hospital.find(params[:hospital_id])
   end
 
   def create
-  	@equipment = Equipment.new(equipment_type_id: params[:equipment_type_id], brand_id: params[:brand_id],
-  															model: params[:model], serial_number: params[:serial_number],
-  																year_manufacture: params[:year_manufacture], 
-  																lifetime: params[:lifetime], hospital_id: current_hospital.id, 
-  																	subarea_id: params[:subarea])
+  	@equipment = Equipment.new(equipment_params)
     if @equipment.save
-      redirect_to current_user
+      redirect_to hospital_equipment_index_path(@equipment.hospital_id)
     else
       render 'new'
     end
@@ -29,5 +26,17 @@ class EquipmentController < ApplicationController
   def index
   	@equipments = Equipment.where(hospital: params[:hospital_id])
   end
+
+  def show
+    @equipment = Equipment.find(params[:id])
+  end
+
+  private
+
+    def equipment_params
+      params.require(:equipment).permit(:equipment_type_id, :brand_id, :hospital_id,
+                                          :model, :serial_number, :image, :remote_image_url, 
+                                            :lifetime, :year_manufacture, :subarea_id)
+    end
   
 end

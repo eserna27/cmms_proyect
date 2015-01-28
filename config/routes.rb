@@ -35,7 +35,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  get ':nickname_user', to: 'profile#show', as: :profile
 
 
   # The priority is based upon order of creation: first created -> highest priority.
