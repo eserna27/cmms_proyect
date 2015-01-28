@@ -5,8 +5,8 @@
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title" id="myModalLabel">Nueva Marca</h4>
         </div>
-        <div class="modal-body">
         <%= form_for(@brand, remote: true, url: brands_path) do |m| %>
+        <div class="modal-body">
             <h2 class="form-signin-heading">Teclee los datos</h2>
             <%= m.text_field :name, class: "form-control", placeholder: "Nombre de la Marca",
                                                 required: true, autofocus: true, style: "margin-bottom: 10px;" %>

@@ -5,4 +5,7 @@ $("<%= escape_javascript(render 'equipment_type/equipment_type', equipment_types
 $('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
 	width: "100%", placeholder_text_single: 'Seleccione una opción'});
 $("<%= escape_javascript(link_to 'Nuevo Tipo', '#EquipmentTypeModal', :class => 'btn', 'data-toggle' => 'modal') %>").appendTo("#equipment_type");
+$('#EquipmentTypeModal').modal('hide');
 $('#EquipmentTypeModal').remove();
+$("<%= escape_javascript(render 'equipment_type/new_equipment_type') %>").appendTo("#modal");
+

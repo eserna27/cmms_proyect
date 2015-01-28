@@ -1,88 +1,84 @@
 <%= provide(:title, "Cuenta") %>
-<div class="container">
-  <div class="page-header">
-    <h1>Finalizar Cuenta</h1>
-    <div class="progress">
-      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-      </div>
+<div class="page-header">
+  <h1>Finalizar Cuenta</h1>
+  <div class="progress">
+    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="jumbotron" style="border-radius: 15px; padding: 1px 15px 15px 15px;">
-    <div class="container" style="margin-top: 27px;">
-      <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail" style="border-radius: 15px;">
-            <div class="caption">
-              <div class="page-header" style="margin: 0px 0 20px;">
-                <h2 style="margin-top: 5px;">Plan <small><%= @plan.name %></small></h2>
-              </div>
-              <p>
-              <h3>Descripción</h3>
-                <ul>
-                  <%= markdown(@plan.description) %>
-                </ul>
-              </p>
-              <p>
-              <h3>Costo/mensual</h3>
-                <ul>
-                  <strong><%= number_to_currency(@plan.cost, :unit => "$") %>/ mes</strong>
-                </ul>
-              </p>
+<div class="jumbotron" style="border-radius: 15px; padding: 1px 15px 15px 15px;">
+  <div class="container" style="margin-top: 27px;">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail" style="border-radius: 15px;">
+          <div class="caption">
+            <div class="page-header" style="margin: 0px 0 20px;">
+              <h2 style="margin-top: 5px;">Plan <small><%= @plan.name %></small></h2>
             </div>
+            <p>
+            <h3>Descripción</h3>
+              <ul>
+                <%= markdown(@plan.description) %>
+              </ul>
+            </p>
+            <p>
+            <h3>Costo/mensual</h3>
+              <ul>
+                <strong><%= number_to_currency(@plan.cost, :unit => "$") %>/ mes</strong>
+              </ul>
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail" style="border-radius: 15px;">
-            <div class="caption">
-              <div class="page-header" style="margin: 0px 0 20px;">
-                <h2 style="margin-top: 5px;">Hospital <small><%= @hospital.name %></small></h2>
-              </div>
-              <h4>Nickname: <small><%= @hospital.nickname %></small></h4> 
-              <p>
-              <h4>Dirección</h4>
-                <h5>Calle: <small><%= @hospital.street %></small></h5><h5>Numero: <small><%= @hospital.number %></small></h5><h5>C.P.: <small><%= @hospital.postal_code %></small></h5> <h5>Ciudad: <small><%= @hospital.city %></small></h5> <h5>Estado: <small><%= @hospital.state %></small></h5> <h5>Pais: <small><%= @hospital.country %></small></h5>
-              </p>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail" style="border-radius: 15px;">
+          <div class="caption">
+            <div class="page-header" style="margin: 0px 0 20px;">
+              <h2 style="margin-top: 5px;">Hospital <small><%= @hospital.name %></small></h2>
             </div>
+            <h4>Nickname: <small><%= @hospital.nickname %></small></h4> 
+            <p>
+            <h4>Dirección</h4>
+              <h5>Calle: <small><%= @hospital.street %></small></h5><h5>Numero: <small><%= @hospital.number %></small></h5><h5>C.P.: <small><%= @hospital.postal_code %></small></h5> <h5>Ciudad: <small><%= @hospital.city %></small></h5> <h5>Estado: <small><%= @hospital.state %></small></h5> <h5>Pais: <small><%= @hospital.country %></small></h5>
+            </p>
           </div>
         </div>
+      </div>
 
-          <div class="col-sm-6 col-md-4">
-          <div class="thumbnail" style="border-radius: 15px;">
-            <div class="caption">
-              <div class="page-header" style="margin: 0px 0 20px;">
-                <h2 style="margin-top: 5px;">Usuario <small><%= @user.name %></small></h2>
-              </div>
-              <h4>Nickname: <small><%= @user.nickname %></small></h4> 
-              <p>
-              <h4>Email: <small><%= @user.email %></small></h4>
-              </p>
+        <div class="col-sm-6 col-md-4">
+        <div class="thumbnail" style="border-radius: 15px;">
+          <div class="caption">
+            <div class="page-header" style="margin: 0px 0 20px;">
+              <h2 style="margin-top: 5px;">Usuario <small><%= @user.name %></small></h2>
             </div>
+            <h4>Nickname: <small><%= @user.nickname %></small></h4> 
+            <p>
+            <h4>Email: <small><%= @user.email %></small></h4>
+            </p>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="page-header" style="margin: 0px 0 20px;">
-                <h2 style="margin-top: 5px;">Cuenta <small>Finalizar</small></h2>
-        </div>
-          <div class="row center-block">
-            <div class="col-xs-3 col-sm-2 center-block">              
-            </div>
-            <div class="col-xs-6 col-sm-4 center-block">
-              <%= button_to "Aceptar", plan_hospital_user_accounts_path(@plan, @hospital, @user),
-               class: "btn btn-primary btn-lg btn-block" %>
-            </div>
-            <div class="col-xs-6 col-sm-4 center-block">
-              <%= button_to "Cancelar", "#", class: "btn btn-default btn-lg btn-block" %>
-            </div>          
-          </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="page-header" style="margin: 0px 0 20px;">
+              <h2 style="margin-top: 5px;">Cuenta <small>Finalizar</small></h2>
       </div>
+        <div class="row center-block">
+          <div class="col-xs-3 col-sm-2 center-block">              
+          </div>
+          <div class="col-xs-6 col-sm-4 center-block">
+            <%= button_to "Aceptar", plan_hospital_user_accounts_path(@plan, @hospital, @user),
+             class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+          <div class="col-xs-6 col-sm-4 center-block">
+            <%= button_to "Cancelar", "#", class: "btn btn-default btn-lg btn-block" %>
+          </div>          
+        </div>
     </div>
   </div>
 </div>

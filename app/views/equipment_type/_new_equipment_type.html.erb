@@ -5,8 +5,8 @@
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title" id="myModalLabel">Tipo de Equipo nuevo</h4>
         </div>
+        <%= form_for(@equipment_type, remote: true, url: equipment_type_index_path) do |t| %>
         <div class="modal-body">
-          <%= form_for(@equipment_type, remote: true, url: equipment_type_index_path) do |t| %>
             <h2 class="form-signin-heading">Teclee los datos</h2>
             <%= t.text_field :name, class: "form-control", placeholder: "Nombre con el que se conoce",
                                                 required: true, autofocus: true, style: "margin-bottom: 10px;" %>

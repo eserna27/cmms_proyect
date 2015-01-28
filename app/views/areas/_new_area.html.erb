@@ -6,8 +6,8 @@
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title" id="myModalLabel">Nueva Área</h4>
         </div>
-        <div class="modal-body">
         <%= form_for(@area, remote: true, url: areas_path) do |t| %>
+        <div class="modal-body">
             <h2 class="form-signin-heading">Teclee los datos</h2>
             <%= t.text_field :name, class: "form-control", placeholder: "Nombre con el que se conoce",
                                                 required: true, autofocus: true, style: "margin-bottom: 10px;" %>
