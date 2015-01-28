@@ -6,7 +6,7 @@
           <h4 class="modal-title" id="myModalLabel">Tipo de Equipo nuevo</h4>
         </div>
         <div class="modal-body">
-        <%= form_for(@equipment_type, remote: true, url: equipment_type_index_path) do |t| %>
+          <%= form_for(@equipment_type, remote: true, url: equipment_type_index_path) do |t| %>
             <h2 class="form-signin-heading">Teclee los datos</h2>
             <%= t.text_field :name, class: "form-control", placeholder: "Nombre con el que se conoce",
                                                 required: true, autofocus: true, style: "margin-bottom: 10px;" %>
@@ -22,7 +22,7 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <%= t.submit "Guardar", class: "btn btn-primary" %> 
         </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
 </div>
