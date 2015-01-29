@@ -17,7 +17,8 @@ class EquipmentController < ApplicationController
   def create
   	@equipment = Equipment.new(equipment_params)
     if @equipment.save
-      redirect_to hospital_equipment_index_path(@equipment.hospital_id)
+      flash[:success] = "Equipo Creado"
+      redirect_to hospital_equipment_path(current_hospital, @equipment)
     else
       render 'new'
     end
@@ -29,7 +30,31 @@ class EquipmentController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+    @hospital = Hospital.find(params[:hospital_id])
   end
+
+  def edit
+    @equipment = Equipment.find(params[:id])
+    @equipment_type = EquipmentType.new
+    @equipment_types = EquipmentType.all
+    @brand = Brand.new
+    @brands = Brand.all
+    @floors = floors_hospital
+    @areas = current_hospital.areas
+    @area = Area.new
+    @subarea = Subarea.new
+    @hospital = Hospital.find(params[:hospital_id])
+  end
+
+  def update
+    @equipment = Equipment.find(params[:id])
+   if @equipment.update_attributes(equipment_params)
+      flash[:success] = "Equipo actualizado"
+      redirect_to hospital_equipment_path(current_hospital, params[:id])
+   else
+    render edit_hospital_equipment_path(current_hospital, params[:id])
+   end
+ end
 
   private
 

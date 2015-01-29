@@ -2,7 +2,9 @@
   <div class="page-header">
     <h1>
     <%= image_tag @equipment.image_url.to_s, data_src: "holder.js/100x100", alt:"100x100", style: "width: 100px; margin-top: -45px; margin-right: 10px; height: 100px;", class: "pull-left"%>
-      <%=  @equipment.model %> <small>Datos</small>
+      <%=  @equipment.model %>
+    <%= link_to "Editar", edit_hospital_equipment_path(@hospital, @equipment), 
+                  class: "btn btn-default pull-right", style: "margin-right: 21px;" %> 
     </h1>
   </div>
 <div class="jumbotron" style="padding: 25px 0;">
