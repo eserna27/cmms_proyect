@@ -1,6 +1,6 @@
 $("#subarea").find(".chosen-container").remove();
 $("#subarea").find("select").remove();
-$('#new_subarea_modal').modal('hide');
+$('#SubareaModal').modal('hide');
 $("#modal").find("#new_subarea_modal").remove();
 $("<%= escape_javascript(render 'subareas/subareas', subareas: @subareas) %>").appendTo("#subarea");
 $('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
