@@ -73,6 +73,7 @@ class AreasController < ApplicationController
         format.js {}
 		  end		
 		end
+    @floors = floors_hospital
 		@areas = Area.where(floor: @area.floor).where(hospital_id: params[:hospital_id])
 	end
 

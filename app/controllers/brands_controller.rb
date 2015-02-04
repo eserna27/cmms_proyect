@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  include HospitalsHelper
+  
   def new
   	@brand = Brand.new
   end
@@ -15,7 +17,8 @@ class BrandsController < ApplicationController
         format.json { render json: @brand.errors, status: :unprocessable_entity }
       end		
     end
-    @brands = Brand.all
+    @brands = Brand.where(hospital_id: current_hospital.id)
+    @hospital = current_hospital
 	end
 
   private

@@ -6,5 +6,7 @@ $('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin r
 	width: "100%", placeholder_text_single: 'Seleccione una opción'});
 $("<%= escape_javascript(link_to 'Nueva Marca', '#BrandModal', :class => 'btn', 'data-toggle' => 'modal') %>").appendTo("#brand");
 $('#BrandModal').modal('hide');
-$('#BrandModal').remove();
-$("<%= escape_javascript( render 'brands/new_brand' ) %> ").appendTo("#modal");
+$('#BrandModal').on('hidden.bs.modal', function (e) {
+  $('#BrandModal').remove();
+})
+$("<%= escape_javascript( render 'brands/new_brand', hospital: @hospital ) %> ").appendTo("#modal");

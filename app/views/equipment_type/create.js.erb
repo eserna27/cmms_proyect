@@ -6,6 +6,8 @@ $('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin r
 	width: "100%", placeholder_text_single: 'Seleccione una opción'});
 $("<%= escape_javascript(link_to 'Nuevo Tipo', '#EquipmentTypeModal', :class => 'btn', 'data-toggle' => 'modal') %>").appendTo("#equipment_type");
 $('#EquipmentTypeModal').modal('hide');
-$('#EquipmentTypeModal').remove();
-$("<%= escape_javascript(render 'equipment_type/new_equipment_type') %>").appendTo("#modal");
+$('#EquipmentTypeModal').on('hidden.bs.modal', function (e) {
+  $('#EquipmentTypeModal').remove();
+})
+$("<%= escape_javascript(render 'equipment_type/new_equipment_type', hospital: @hospital) %>").appendTo("#modal");
 

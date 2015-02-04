@@ -1,5 +1,5 @@
 class EquipmentTypeController < ApplicationController
-
+  include HospitalsHelper
 	def new
 		@equipment_type = EquipmentType.new
 	end
@@ -16,7 +16,8 @@ class EquipmentTypeController < ApplicationController
         format.json { render json: @equipment_type.errors, status: :unprocessable_entity }
       end		
     end
-    @equipment_types = EquipmentType.all
+    @equipment_types = EquipmentType.where(hospital_id: current_hospital.id)
+    @hospital = current_hospital
 	end
 
   private
