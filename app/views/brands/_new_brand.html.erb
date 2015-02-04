@@ -10,6 +10,7 @@
             <h2 class="form-signin-heading">Teclee los datos</h2>
             <%= m.text_field :name, class: "form-control", placeholder: "Nombre de la Marca",
                                                 required: true, autofocus: true, style: "margin-bottom: 10px;" %>
+            <%= m.hidden_field :hospital_id, :value => hospital.id %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

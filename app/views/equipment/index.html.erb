@@ -17,9 +17,10 @@
 	  		</tr>
 	  	</thead>
 	  	<tbody>
+	  	<div class="media">
 			<% @equipments.each do |equipment| %>
 				<tr onclick="location.href='<%= hospital_equipment_path(current_hospital, equipment) %>'">
-				<div class="media">
+				
 				<td>
 					<div class="media-left">
 						<%= image_tag equipment.image_url.to_s, data_src: "holder.js/80x80", alt:"80x80", style: "width: 80px; height: 80px;"%>  
@@ -32,10 +33,11 @@
 					<td class="text-center"><%= equipment.subarea.area_name %></td>
 					<td class="text-center"><%= equipment.subarea_name %></td>						
 					</div>
-				</div>
+				
 				</tr>
 			<% end %>
-			</tbody>
+			</div>
+		</tbody>
 		</table>
 	</div>
 </div>

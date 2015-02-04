@@ -116,9 +116,9 @@
   </div>
 </div>
 <div id="modal">
-  <%= render "equipment_type/new_equipment_type" %>
-  <%= render "brands/new_brand" %>
-  <%= render "areas/new_area" %>
+  <%= render "equipment_type/new_equipment_type", hospital: @hospital %>
+  <%= render "brands/new_brand", hospital: @hospital %>
+  <%= render "areas/new_area", hospital: @hospital %>
 </div>
 
 <script type="text/javascript">

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   root              'static_pages#home'
   get     'about'      =>  'static_pages#about'
   get     'signup'     =>  'users#new'
@@ -13,21 +13,31 @@ Rails.application.routes.draw do
   resources :brands
   resources :equipment 
   resources :hospitals
-  resources :areas
   resources :subareas
+  resources :areas
   resources :hospitals do
     resources :floors, only: [] do
-      get :areas, on: :member
+      get :areas_select, on: :member
     end
     resources :areas, only: [] do
-      get :subareas, on: :member
+      get :subareas_select, on: :member
     end
+    resources :floors do
+      resources :areas
+    end
+    resources :areas
     resources :equipment
     resources :equipment_type
     resources :brands
+    resources :areas do
+      resources :contacts
+      resources :subareas
+    end
+    resources :contacts
   end
   resources :plans
   resources :accounts 
+  resources :contacts
   resources :plans do
     resources :hospitals,  only: [ :new, :create ] do
       resources :users,     only: [ :new, :create ] do

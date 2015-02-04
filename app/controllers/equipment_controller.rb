@@ -4,9 +4,9 @@ class EquipmentController < ApplicationController
 	def new
     @equipment = Equipment.new
     @equipment_type = EquipmentType.new
-    @equipment_types = EquipmentType.all
+    @equipment_types = EquipmentType.where(hospital_id: params[:hospital_id])
     @brand = Brand.new
-    @brands = Brand.all
+    @brands = Brand.where(hospital_id: params[:hospital_id])
     @floors = floors_hospital
     @areas = current_hospital.areas
     @area = Area.new
@@ -30,15 +30,18 @@ class EquipmentController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+    @subarea = Subarea.find(@equipment.subarea_id)
+    @area = Area.find(@subarea.area_id)
+    @contact = @area.contact
     @hospital = Hospital.find(params[:hospital_id])
   end
 
   def edit
     @equipment = Equipment.find(params[:id])
     @equipment_type = EquipmentType.new
-    @equipment_types = EquipmentType.all
+    @equipment_types = EquipmentType.where(hospital_id: params[:hospital_id])
     @brand = Brand.new
-    @brands = Brand.all
+    @brands = Brand.where(hospital_id: params[:hospital_id])
     @floors = floors_hospital
     @areas = current_hospital.areas
     @area = Area.new

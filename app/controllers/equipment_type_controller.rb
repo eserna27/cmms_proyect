@@ -21,6 +21,6 @@ class EquipmentTypeController < ApplicationController
 
   private
     def equipment_type_params
-      params.require(:equipment_type).permit(:name, :description, :cuadro_basico, :umdns, :gmnd)
+      params.require(:equipment_type).permit(:name, :description, :cuadro_basico, :umdns, :gmnd, :hospital_id)
     end
 end

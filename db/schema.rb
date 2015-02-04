@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126184910) do
+ActiveRecord::Schema.define(version: 20150203233436) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -24,17 +24,27 @@ ActiveRecord::Schema.define(version: 20150126184910) do
   create_table "areas", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "user_contact_id"
     t.integer  "floor"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "hospital_id"
   end
 
   create_table "brands", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "hospital_id"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "area_id"
+    t.integer  "hospital_id"
   end
 
   create_table "equipment", force: true do |t|
@@ -59,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150126184910) do
     t.string   "cuadro_basico"
     t.string   "umdns"
     t.string   "gmnd"
+    t.integer  "hospital_id"
   end
 
   create_table "hospitals", force: true do |t|

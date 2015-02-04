@@ -13,7 +13,7 @@
                                                 required: true, autofocus: true, style: "margin-bottom: 10px;" %>
             <%= t.text_area :description, class: "form-control", placeholder: "Descripción breve de la función que realiza", style: "height: 145px; margin-bottom: 10px; "%>
             <%= t.select :floor, @floors.map{ |b| [b, b] },{ :include_blank => "Seleccione Piso"}, {class: "form-control"} %>
-            
+            <%= t.hidden_field :hospital_id, :value => hospital.id %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

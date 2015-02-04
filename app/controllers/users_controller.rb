@@ -1,7 +1,26 @@
 class UsersController < ApplicationController
-  
+  include HospitalsHelper
+
   def show
   	@user = User.find(params[:id])
+    @equipments = Equipment.where(hospital_id: current_hospital.id).last(5)
+    @areas = Area.where(hospital_id: current_hospital.id).last(5)
+    @contacts = Contact.where(hospital_id: current_hospital).last(5)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    @hospital = Hospital.find(current_hospital.id)
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Usuario actualizado"
+      redirect_to @user
+   else
+    render @user
+   end
   end
 
   def new
