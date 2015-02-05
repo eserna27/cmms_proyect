@@ -17,6 +17,7 @@
 	           	<%= t.text_field :phone, class: "form-control", placeholder: "Telefono",
 	                                                required: true, autofocus: true, style: "margin-bottom: 10px;" %>
 	            <%= t.hidden_field :area_id, :value =>  @area.id %>
+	            <%= t.hidden_field :hospital_id, :value =>  @area.hospital_id %>
 	        </div>
 	        <div class="modal-footer">
 	         <%= t.submit "Guardar", class: "btn btn-primary" %> 
