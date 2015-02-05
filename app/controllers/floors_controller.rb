@@ -1,4 +1,7 @@
 class FloorsController < ApplicationController
+  before_action :logged_in_user, only: [:areas_select, :index]
+  before_action :correct_hospital, only: [:areas_select, :index]
+
 	include HospitalsHelper
 
 	def areas_select

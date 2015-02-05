@@ -1,4 +1,7 @@
 class AccountsController < ApplicationController
+  before_action :logged_in_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+
   include HospitalsHelper
   def new
   	@plan = Plan.find(params[:plan_id])
@@ -33,4 +36,9 @@ class AccountsController < ApplicationController
   	def account_params
   		params.permit(:plan_id, :hospital_id, :user_id)
   	end
+
+    def correct_account_user
+      @account = Account.find(params[:id])
+      redirect_to(root_url) unless @account.user_id == current_user.id
+    end
 end
