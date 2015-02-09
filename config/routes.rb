@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get     'noaccount'   =>  'static_pages#noaccount'
 
   resources :users 
-  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
   resources :equipment_type
   resources :brands
   resources :equipment 

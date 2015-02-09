@@ -6,8 +6,9 @@
     <h2 class="form-signin-heading">Teclee sus datos</h2> 
     <%= f.text_field :email, class: "form-control", placeholder: "Email",
                                               required: true, autofocus: true %>
-    <%= f.password_field :password, class: "form-control", placeholder: "Password",
+    <%= f.password_field :password, class: "form-control", placeholder: "Contraseña",
                                               required: true %>  
+    <%= link_to "(Se te olvido tu Contraseña)", new_password_reset_path %>
     <div class="checkbox">
           <label>
             <%= f.check_box :remember_me %> Recordarme en esta computadora
@@ -16,7 +17,4 @@
     <%= f.submit "Entrar", class: "btn btn-lg btn-primary btn-block" %> 
      <p>¿Usuario Nuevo? <%= link_to "¡Registrate ahora!", signup_path %></p>
   <% end %>
-
- 
-
 </div> <!-- /container -->

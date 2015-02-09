@@ -1,7 +1,6 @@
 class EquipmentController < ApplicationController
 	before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
-  include HospitalsHelper
 
 	def new
     @equipment = Equipment.new

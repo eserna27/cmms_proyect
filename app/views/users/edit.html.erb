@@ -15,10 +15,10 @@
 		                                            required: true, autofocus: true, style: "margin-bottom: 10px;" %>          
 		    <%= f.text_field :email, class: "form-control", placeholder: "Email",
 		                                            required: true, style: "margin-bottom: 10px;" %>
-		    <%= f.password_field :password, class: "form-control", placeholder: "Password",
+		    <%= f.password_field :password, class: "form-control", placeholder: "Contraseña",
 		                                              required: true, style: "margin-bottom: 10px;" %>  
 		    <%= f.password_field :password_confirmation, class: "form-control", 
-		                                      placeholder: "Confirmación Password", style: "margin-bottom: 10px;" %>  
+		                                      placeholder: "Confirmación Contraseña", style: "margin-bottom: 10px;" %>  
 		    <%= f.hidden_field :hospital_id, :value => @hospital.id %>
 		     
 		    </div>

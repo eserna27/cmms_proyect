@@ -14,6 +14,8 @@ gem 'sdoc',                 '0.4.0', group: :doc
 gem 'redcarpet'
 gem 'chosen-rails'
 gem 'carrierwave' 
+gem "letter_opener", :group => :development
+
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

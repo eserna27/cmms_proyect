@@ -1,6 +1,8 @@
 class ContactsController < ApplicationController
+
   before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
+
   def new
   	@contact = Contact.new
   	@area = Area.find(params[:area_id])

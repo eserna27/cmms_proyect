@@ -10,6 +10,6 @@ module HospitalsHelper
  	end
 
  	def correct_hospital
-    	redirect_to(root_url) unless current_hospital.id == current_user.id
+    	redirect_to(root_url) unless current_hospital.id == current_user.hospital_id
  	end
 end
