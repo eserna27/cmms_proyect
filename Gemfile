@@ -15,6 +15,7 @@ gem 'redcarpet'
 gem 'chosen-rails'
 gem 'carrierwave' 
 gem "letter_opener", :group => :development
+gem 'fog'
 
 
 group :development, :test do
