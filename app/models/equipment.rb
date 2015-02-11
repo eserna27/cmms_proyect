@@ -3,7 +3,7 @@ class Equipment < ActiveRecord::Base
 	belongs_to :brand
 	belongs_to :hospital
 	belongs_to :subarea
-	mount_uploader :image, ImageUploader  
+	mount_uploader :image, ImageUploader
 
 	def brand_name
 		brand.name

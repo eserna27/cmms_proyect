@@ -16,7 +16,7 @@ gem 'chosen-rails'
 gem 'carrierwave' 
 gem "letter_opener", :group => :development
 gem 'fog'
-
+gem 'rmagick'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
