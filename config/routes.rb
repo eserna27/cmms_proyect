@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'master/show'
+
   root              'static_pages#home'
   get     'about'      =>  'static_pages#about'
   get     'signup'     =>  'users#new'
@@ -36,7 +38,11 @@ Rails.application.routes.draw do
     end
     resources :contacts
   end
-  resources :plans
+  resources :plans, only: [:index]
+  resources :master do
+    resources :plans
+    resources :accounts
+  end
   resources :accounts 
   resources :contacts
   resources :plans do

@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    if master_user?
+      redirect_to master_path(@user)
+    end
     @equipments = Equipment.where(hospital_id: current_hospital.id).last(5)
     @areas = Area.where(hospital_id: current_hospital.id).last(5)
     @contacts = Contact.where(hospital_id: current_hospital).last(5)

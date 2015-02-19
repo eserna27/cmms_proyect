@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209201412) do
+ActiveRecord::Schema.define(version: 20150212225509) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -90,10 +90,12 @@ ActiveRecord::Schema.define(version: 20150209201412) do
 
   create_table "plans", force: true do |t|
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.float    "cost"
     t.text     "description"
+    t.integer  "max_equipment"
+    t.integer  "max_area"
   end
 
   create_table "subareas", force: true do |t|
@@ -114,15 +116,15 @@ ActiveRecord::Schema.define(version: 20150209201412) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "nickname"
     t.integer  "hospital_id"
-    t.boolean  "admin",           default: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "user_type",       default: "normal"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

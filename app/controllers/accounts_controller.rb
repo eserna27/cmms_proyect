@@ -1,8 +1,7 @@
 class AccountsController < ApplicationController
 
   before_action :logged_in_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :correct_user, only: [:show, :edit, :update, :destroy ]
   
   def new
   	@plan = Plan.find(params[:plan_id])

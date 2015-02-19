@@ -1,7 +1,22 @@
 class PlansController < ApplicationController
-  
+  before_action :master_user, only: [:new, :edit, :create]
+
   def new
   	@plan = Plan.new
+  end
+
+  def edit
+    @plan = Plan.find(params[:id])
+  end
+
+  def update
+    @plan = Plan.find(params[:id])
+    if @plan.update_attributes(plan_params)
+      flash[:success] = "Plan actualizado"
+      redirect_to @plan
+   else
+    render  edit_plan_path(@plan)
+   end
   end
 
   def show
@@ -24,6 +39,6 @@ class PlansController < ApplicationController
   private
 
     def plan_params
-      params.require(:plan).permit(:name, :cost, :description )
+      params.require(:plan).permit(:name, :cost, :description, :max_equipment, :max_area )
     end
 end

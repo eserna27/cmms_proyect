@@ -16,6 +16,16 @@
     @include  box_sizing;
   }
 
+/* LOGO */
+  .company {
+    float: left;
+    font-family: Montserrat, sans-serif;
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 /* Body */
  
  body{

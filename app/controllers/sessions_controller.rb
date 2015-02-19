@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user_path(user)
+
   	else
       flash.now[:danger] = 'Usuario incorrecto'
 	  	render 'new'
