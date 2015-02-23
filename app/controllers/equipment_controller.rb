@@ -71,7 +71,8 @@ class EquipmentController < ApplicationController
     end
     
     def equipment_limit
-      if current_hospital.equipments_quantity >= current_hospital.limit_equipments
+      @current_hospital = current_hospital
+      if @current_hospital.equipments_quantity > @current_hospital.limit_equipments
         flash[:danger] = "Limite de equipos alcanzado"
         redirect_to current_user
       end
