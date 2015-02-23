@@ -1,0 +1,10 @@
+$("#subarea").find(".chosen-container").remove();
+$("#subarea").find("select").remove();
+$('#SubareaModal').modal('hide');
+$('#SubareaModal').on('hidden.bs.modal', function (e) {
+  $('#SubareaModal').remove();
+})
+$("<%= escape_javascript(render 'subareas/subareas', subareas: @subareas) %>").appendTo("#subarea");
+$('.chosen-select').chosen({allow_single_deselect: true, no_results_text: "Sin resultados", 
+width: "100%", placeholder_text_single: 'Seleccione una opción'});
+$("<%= escape_javascript(render 'subareas/new_subarea', areas: @areas) %>").appendTo("#modal");

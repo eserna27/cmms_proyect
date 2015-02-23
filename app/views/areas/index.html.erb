@@ -1,0 +1,44 @@
+<%= provide(:title, "Areas" ) %>
+  <div class="page-header">
+    <h1>
+    	Áreas 
+    </h1>
+  </div>
+<div class="jumbotron" style="padding: 25px 0;">
+  <div class="container" style="margin-top: 0;">
+		<div class="row" id="areas_idex">
+		  <div class="col-xs-8 col-sm-6">
+		  	<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Seleccione Piso</h3>
+				  </div>
+				  <div class="panel-body">
+				  	<% @floors.each do |floor| %>
+							<div class="btn-group" role="group" aria-label="...">
+								<%= link_to "Piso #{floor}", hospital_floor_areas_path(@hospital, floor),
+												class: "btn btn btn-default" %>
+							</div>
+						<% end %>
+				  </div>
+				</div>
+			</div>
+			<div class="col-xs-8 col-sm-6">
+		  	<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Seleccione Área
+				    	<%= link_to "Nueva Área", new_hospital_floor_area_path(@hospital, @floor), :class => "btn pull-right", style: "margin-top: -8px; color: cornflowerblue;" %>
+				    </h3>
+				  </div>
+				  <div class="panel-body">
+				  	<% @areas.each do |area| %>
+							<div class="btn-group" role="group" aria-label="...">
+								<%= link_to area.name, hospital_floor_area_path(@hospital, @floor, area),
+												class: "btn btn btn-default" %>
+							</div>
+						<% end %>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

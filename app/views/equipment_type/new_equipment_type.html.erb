@@ -1,0 +1,28 @@
+<div class="modal fade" id="EquipmentTypeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Tipo de Equipo nuevo</h4>
+        </div>
+        <div class="modal-body">
+        <%= form_for(@equipment_type, remote: true, url: equipment_type_index_path) do |t| %>
+            <h2 class="form-signin-heading">Teclee los datos</h2>
+            <%= t.text_field :name, class: "form-control", placeholder: "Nombre con el que se conoce",
+                                                required: true, autofocus: true, style: "margin-bottom: 10px;" %>
+            <%= t.text_area :description, class: "form-control", placeholder: "Descripción breve de la función que realiza", style: "height: 145px; margin-bottom: 10px; "%>
+            <%= t.text_field :cuadro_basico, class: "form-control", placeholder: "Cuadro Basico",
+                                                autofocus: true, style: "margin-bottom: 10px;" %>
+            <%= t.text_field :umdns, class: "form-control", placeholder: "Código UMDNS",
+                                                autofocus: true, style: "margin-bottom: 10px;" %>
+            <%= t.text_field :gmnd, class: "form-control", placeholder: "Código GMDN",
+                                                autofocus: true, style: "margin-bottom: 10px;"%> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= t.submit "Guardar", class: "btn btn-primary" %> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

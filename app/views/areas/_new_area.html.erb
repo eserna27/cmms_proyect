@@ -1,0 +1,25 @@
+
+<div class="modal fade" id="AreaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva Área</h4>
+        </div>
+        <%= form_for(@area, remote: true, url: areas_path) do |t| %>
+        <div class="modal-body">
+            <h2 class="form-signin-heading">Teclee los datos</h2>
+            <%= t.text_field :name, class: "form-control", placeholder: "Nombre con el que se conoce",
+                                                required: true, autofocus: true, style: "margin-bottom: 10px;" %>
+            <%= t.text_area :description, class: "form-control", placeholder: "Descripción breve de la función que realiza", style: "height: 145px; margin-bottom: 10px; "%>
+            <%= t.select :floor, @floors.map{ |b| [b, b] },{ :include_blank => "Seleccione Piso"}, {class: "form-control"} %>
+            <%= t.hidden_field :hospital_id, :value => hospital.id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= t.submit "Guardar", class: "btn btn-primary" %> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

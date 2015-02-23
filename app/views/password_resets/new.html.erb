@@ -1,0 +1,11 @@
+<%= provide(:title, "Constraseña Olvidada") %>
+<div class="container", style="margin-top: 10px">
+
+  <%= form_for(:password_reset, url: password_resets_path, html: { class: "form-signin",
+            style:"border-radius: 10px; background-color: #eeeeee;" })  do |f| %>
+    <h2 class="form-signin-heading">Recuperar Contraseña</h2> 
+    <%= f.email_field :email, class: "form-control", placeholder: "Email",  required: true %>
+    <%= f.submit "Entrar", class: "btn btn-primary btn-block" %> 
+     <p>¿Usuario Nuevo? <%= link_to "¡Registrate ahora!", signup_path %></p>
+  <% end %>
+</div> 

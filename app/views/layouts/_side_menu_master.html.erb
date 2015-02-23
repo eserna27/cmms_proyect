@@ -1,0 +1,27 @@
+<ul class="nav navbar-nav side-nav">
+    <li>
+			 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-tags"></i> 
+       Plan <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="demo" class="collapse">
+            <li>
+              <%= link_to  master_plans_path(current_user), id: "" do %>
+                <i class="fa fa-fw fa-cubes"></i> 
+                Todos
+              <% end %>
+            </li>
+            <li>
+          		<%= link_to  new_master_plan_path(current_user) do %>
+			          <i class="fa fa-fw fa-plus-circle"></i> 
+			          Nuevo
+			        <% end %>
+            </li>
+        </ul>
+    </li>
+    <li>
+      <%= link_to logout_path, method: "delete",  id: "" do %>
+        <i class="fa fa-fw fa-power-off"></i>
+        Cerrar
+      <% end %>
+    </li>
+    
+</ul>

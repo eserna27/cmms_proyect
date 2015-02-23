@@ -1,0 +1,57 @@
+<%= provide(:title, "Nuevo Hospital") %>
+<div class="container">
+  <div class="page-header">
+    <h1>Registro <small>Registro Hospital</small></h1>
+    <div class="progress">
+      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+      </div>
+    </div>
+  </div>
+  <%= form_for(@hospital, url: plan_hospitals_path, html: { class: "form-signin",
+            style:"border-radius: 10px; background-color: #eeeeee; max-width: 650px;" })  do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <h2 class="form-signin-heading">Teclee los datos del hospital</h2>
+      <%= f.text_field :name, class: "form-control", placeholder: "Nombre",
+                                            required: true, autofocus: true %>   
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Dirección
+        </div>
+        <div class="panel-body">
+          <div class="col-xs-6">
+            <%= f.text_field :street, class: "form-control", placeholder: "Calle",
+                                                  required: true %>  
+          </div>
+          <div class="col-xs-6">
+            <%= f.text_field :number, class: "form-control", placeholder: "Numero",
+                                                  required: true %>  
+          </div>
+          <div class="col-xs-6">
+            <%= f.text_field :postal_code, class: "form-control", placeholder: "C.P",
+                                                  required: true %>  
+          </div>
+          <div class="col-xs-6">
+            <%= f.text_field :city, class: "form-control", placeholder: "Ciudad",
+                                                  required: true %>  
+          </div>
+                    <div class="col-xs-6">
+            <%= f.text_field :state, class: "form-control", placeholder: "Estado",
+                                                  required: true %>  
+          </div>
+                    <div class="col-xs-6">
+            <%= f.text_field :country, class: "form-control", placeholder: "Pais",
+                                                  required: true %>  
+          </div>
+          <div class="col-xs-6">
+            <%= f.text_field :floors, class: "form-control", placeholder: "Numero de Pisos",
+                                                  required: true %>  
+          </div>
+        </div>
+      </div>  
+      <%= f.hidden_field :equipments_quantity, :value => 0 %>
+      <%= f.hidden_field :areas_quantity, :value => 0 %>
+      <%= f.hidden_field :limit_equipments, :value => @plan.max_equipment %>
+      <%= f.hidden_field :limit_areas, :value => @plan.max_area %>
+    <%= f.submit "Guardar Datos", class: "btn btn-lg btn-primary btn-block" %> 
+  <% end %>
+</div>

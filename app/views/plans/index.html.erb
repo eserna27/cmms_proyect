@@ -1,0 +1,5 @@
+<% if logged_in? && master_user? %>
+  <%= render 'plans/index_master' %>
+<% else %>
+  <%= render 'plans/index_activation' %>
+<% end %>

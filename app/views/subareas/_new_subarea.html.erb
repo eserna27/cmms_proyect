@@ -1,0 +1,25 @@
+<div id="new_subarea_modal">
+<!-- Modal -->
+  <div class="modal fade" id="SubareaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Nueva Subárea</h4>
+        </div>
+        <%= form_for(@subarea, remote: true, url: subareas_path) do |r| %>
+          <div class="modal-body">     
+              <h2 class="form-signin-heading">Teclee los datos</h2>
+              <%= r.select :area_id, @areas.map{ |b| [b.name, b.id] },{ :include_blank => "Seleccione Area"}, {class: "form-control", style: "margin-bottom: 10px;"} %>
+              <%= r.text_field :name, class: "form-control", placeholder: "Nombre con el que se conoce",
+                                                  required: true, autofocus: true %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= r.submit "Guardar", class: "btn btn-primary" %> 
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
