@@ -7,10 +7,11 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     if master_user?
       redirect_to master_path(@user)
+    else
+      @equipments = Equipment.where(hospital_id: current_hospital.id).last(5)
+      @areas = Area.where(hospital_id: current_hospital.id).last(5)
+      @contacts = Contact.where(hospital_id: current_hospital).last(5)
     end
-    @equipments = Equipment.where(hospital_id: current_hospital.id).last(5)
-    @areas = Area.where(hospital_id: current_hospital.id).last(5)
-    @contacts = Contact.where(hospital_id: current_hospital).last(5)
   end
 
   def edit

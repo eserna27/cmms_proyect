@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  has_one :user
-  has_one :plan
-  has_one :hospital
+  belongs_to :user
+  belongs_to :plan
+  belongs_to :hospital
 end

@@ -1,6 +1,7 @@
 class EquipmentController < ApplicationController
 	before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
+  before_action :equipment_limit, only: [:new]
 
 	def new
     @equipment = Equipment.new
@@ -19,6 +20,7 @@ class EquipmentController < ApplicationController
   	@equipment = Equipment.new(equipment_params)
     if @equipment.save
       flash[:success] = "Equipo Creado"
+      current_hospital.equipments_quantity = current_hospital.equipments_quantity + 1
       redirect_to hospital_equipment_path(current_hospital, @equipment)
     else
       render 'new'
@@ -67,5 +69,12 @@ class EquipmentController < ApplicationController
                                           :model, :serial_number, :image, :remote_image_url, 
                                             :lifetime, :year_manufacture, :subarea_id)
     end
-  
+
+    def equipment_limit
+      @current_hospital = current_hospital
+      if @current_hospital.equipments_quantity > @current_hospital.limit_equipments
+        flash[:danger] = "Limite de equipos alcanzado"
+        redirect_to current_user
+      end
+    end
 end

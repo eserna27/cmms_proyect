@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212225509) do
+ActiveRecord::Schema.define(version: 20150221202113) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -80,10 +80,14 @@ ActiveRecord::Schema.define(version: 20150212225509) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "nickname"
     t.integer  "floors"
+    t.integer  "equipments_quantity"
+    t.integer  "areas_quantity"
+    t.integer  "limit_equipments"
+    t.integer  "limit_areas"
   end
 
   add_index "hospitals", ["nickname"], name: "index_hospitals_on_nickname", unique: true

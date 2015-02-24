@@ -2,6 +2,7 @@ class HospitalsController < ApplicationController
   
   def new
   	@hospital = Hospital.new
+    @plan = Plan.find(params[:plan_id])
   end
 
   def create
@@ -16,6 +17,7 @@ class HospitalsController < ApplicationController
   private
     def hospital_params
       params.require(:hospital).permit(:name, :street, :number, :postal_code, :city,
-                                            :country, :state, :floors)
+                                            :country, :state, :floors, :equipments_quantity, :areas_quantity,
+                                              :limit_equipments, :limit_areas)
     end
 end

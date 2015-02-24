@@ -46,8 +46,12 @@
             <%= f.text_field :floors, class: "form-control", placeholder: "Numero de Pisos",
                                                   required: true %>  
           </div>
-        </div>
-      </div>   
+        </div> 
+      </div>  
+      <%= f.hidden_field :equipments_quantity, :value => 0 %>
+      <%= f.hidden_field :areas_quantity, :value => 0 %>
+      <%= f.hidden_field :limit_equipments, :value => @plan.max_equipment %>
+      <%= f.hidden_field :limit_areas, :value => @plan.max_area %>
     <%= f.submit "Guardar Datos", class: "btn btn-lg btn-primary btn-block" %> 
   <% end %>
 </div>

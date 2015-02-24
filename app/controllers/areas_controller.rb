@@ -1,7 +1,7 @@
 class AreasController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
-  
+  before_action :area_limit, only: [:new]
 
   def new
   	@area = Area.new
@@ -68,6 +68,7 @@ class AreasController < ApplicationController
 		@area = Area.new(area_params)
 		respond_to do |format|
 		  if @area.save
+        current_hospital.areas_quantity = current_hospital.areas_quantity + 1
 		    format.js {}
         format.html { redirect_to hospital_floor_area_path(@area.hospital_id, @area.floor, @area)}
 		  else
@@ -82,5 +83,13 @@ class AreasController < ApplicationController
   private
     def area_params
       params.require(:area).permit(:name, :description, :floor, :contact_id, :hospital_id)
+    end
+    
+    def area_limit
+      @current_hospital = current_hospital
+      if @current_hospital.areas_quantity > @current_hospital.limit_areas
+        flash[:danger] = "Limite de áreas alcanzado"
+        redirect_to current_user
+      end
     end
 end
