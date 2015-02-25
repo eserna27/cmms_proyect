@@ -6,6 +6,18 @@ class SubareasController < ApplicationController
   	@subarea = Subarea.new
   	@area = Area.find(params[:area_id])
   end
+
+  def show
+    @hospital = Hospital.find(params[:hospital_id])
+    @floors = floors_hospital
+    @area = Area.find(params[:area_id])
+    @floor = @area.floor
+    @areas = Area.where(hospital_id: params[:hospital_id]).where(floor: @floor)
+    @contact = @area.contact
+    @subareas = @area.subareas
+    @subarea = Subarea.find(params[:id])
+    @equipments = @subarea.equipments
+  end
   
   def create
 		@subarea = Subarea.new(subarea_params)

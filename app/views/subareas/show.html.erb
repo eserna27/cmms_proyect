@@ -1,7 +1,7 @@
-<%= provide(:title, "Areas" ) %>
+<%= provide(:title, "Subárea" ) %>
   <div class="page-header">
     <h1>
-    	Área <small><%= @area.name %></small>
+    	Subárea <small><%= @subarea.name %></small>
     </h1>
   </div>
 <div class="jumbotron" style="padding: 25px 0;">
@@ -107,7 +107,7 @@
 								  			<% @subareas.each do |subarea| %>
 									  			<tr>
 									  				<td><%= subarea.name %></td>
-                            <td><%= link_to "Ver equipos",hospital_area_subarea_path(@hospital, @area, subarea) %></td>
+                            <td><%= link_to "Ver equipos",hospital_area_subarea_path(@hospital, @area, subarea)+"#info_equipments" %></td>
 									  				<td><%= link_to '<i class="fa fa-cog">
                             </i>'.html_safe, edit_hospital_area_subarea_path(@hospital, @area, subarea) %></td>
 									  				<td><%= link_to '<i class="fa fa-times">
@@ -125,6 +125,59 @@
 							</div>
 						</div>
 			</div>
+		</div>
+		<div class="row" id="info_equipments">
+		  <div class="col-xs-16 col-sm-12">
+      	<div class="col-xs-16 col-sm-12">
+			  	<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">Equipos
+					    <%= link_to "Nuevo Equipo", new_hospital_equipment_path(@hospital),
+        						class: "btn pull-right", style: "margin-top: -10px; color: cornflowerblue;margin-right: 10px;" %>
+        			</h3>
+					  </div>
+					  <div class="panel-body">
+					  	<% if !@equipments.empty? %>
+					  		<table class="table table-striped">
+							  	<thead>
+							  		<tr>
+							  			<td><strong>Imagen</strong></td>
+							  			<td class="text-center"><strong>Modelo</strong></td>
+							  			<td class="text-center"><strong>Num. Serie</strong></td>
+							  			<td class="text-center"><strong>Marca</strong></td>
+							  			<td class="text-center"><strong>Area</strong></td>
+							  			<td class="text-center"><strong>SubArea</strong></td>
+							  		</tr>
+							  	</thead>
+							  	<tbody>
+							  	<div class="media">
+									<% @equipments.each do |equipment| %>
+										<tr onclick="location.href='<%= hospital_equipment_path(current_hospital, equipment) %>'">
+										
+										<td>
+											<div class="media-left">
+												<%= image_tag equipment.image_url.to_s, data_src: "holder.js/80x80", alt:"80x80", style: "width: 80px; height: 80px;"%>  
+											</div>
+										</td>
+											<div class="media-body">
+											<td class="text-center"><%= equipment.model %></td>
+											<td class="text-center"><%= equipment.serial_number %></td>
+											<td class="text-center"><%= equipment.brand_name %></td>
+											<td class="text-center"><%= equipment.subarea.area_name %></td>
+											<td class="text-center"><%= equipment.subarea_name %></td>						
+											</div>
+										</tr>
+									<% end %>
+									</div>
+								</tbody>
+								</table>
+							<% else %>
+					  		No hay Equipos
+					  	<% end %>
+					  </div>
+					</div>
+				</div>
+		  </div>
 		</div>
 	</div>
 </div>

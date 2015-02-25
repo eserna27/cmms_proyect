@@ -36,6 +36,11 @@
 												class: "btn btn btn-default" %>
 							</div>
 						<% end %>
+						<% if @areas.empty? %>
+							<div class="btn-group" role="group" aria-label="...">
+								<h5>No hay áreas</h5>
+							</div>
+						<% end %>
 				  </div>
 				</div>
 			</div>

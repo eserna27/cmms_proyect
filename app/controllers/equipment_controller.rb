@@ -28,7 +28,11 @@ class EquipmentController < ApplicationController
   end
 
   def index
-  	@equipments = Equipment.where(hospital: params[:hospital_id])
+    if params[:subarea_id].nil?
+  	   @equipments = Equipment.where(hospital: params[:hospital_id])
+    else
+      @equipments = Equipment.where(hospital: params[:hospital_id]).where(subarea_id: params[:subarea_id])
+    end
   end
 
   def show
