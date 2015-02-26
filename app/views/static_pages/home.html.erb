@@ -1,4 +1,4 @@
-
+<%= provide(:title, "Gestiona tu equipo médico" ) %>
   <header class="nav-bar">
     <div class="w-container">
       <div class="w-row">
@@ -13,16 +13,18 @@
   </header>
   <div class="section hero">
     <div class="w-container">
-      <h1 class="hero-heading">Cuida tú equipo médico simple</h1>
+      <h1 class="hero-heading">Cuida tú equipo médico, simple</h1>
       <p class="hero-subhead">Sinapsis te ayuda a que tengas tu equipo médico listo para el cuidado de la salud de tus pacientes.</p>
-      <div class="button-group"><%= link_to "Entrar", login_path, class: "nav-link sign-up" %><a class="button" href="#features">Registrate</a>
+      <div class="button-group">
+      <%= link_to "Entrar", login_path, class: "nav-link sign-up" %>
+      <%= link_to "Registrate", plans_path, class: "button" %>
       </div>
       <%= image_tag("2-big-screen.png", width:"940", alt:"2-big-screen.png")%> 
     </div>
   </div>
   <div class="section" id="mobile">
     <div class="w-container">
-      <h2 class="section-title">Sinapsis no se necesita instalar esta en tu navegador</h2>
+      <h2 class="section-title">Sinapsis no se necesita instalar, esta en tu navegador</h2>
       <p class="section-subtitle">Por que preocuparse de tener que instalaciones, compra de servidores, soporte, etc. Con Sinapsis eso no ocurrirá.</p>
       <div class="w-row">
         <div class="w-col w-col-6 center">
@@ -118,10 +120,10 @@
           <div class="footer-text">Sinapsis</div>
         </div>
         <div class="w-col w-col-6 right-footer-col">
-          <a class="w-inline-block social-icon" href="mailto:support@webflow.com?subject=Hello">
+          <a class="w-inline-block social-icon" href="mailto:contacto@jazzhealthcare">
           	<%= image_tag("14-social-email.png", width:"20" )%>
           </a>
-          <a class="w-inline-block social-icon" href="http://www.twitter.com/webflowapp" target="_blank">
+          <a class="w-inline-block social-icon" href="http://www.twitter.com/jazzhealthcare" target="_blank">
           <%= image_tag("14-social-twitter.png", width:"20") %>
           </a>
         </div>
