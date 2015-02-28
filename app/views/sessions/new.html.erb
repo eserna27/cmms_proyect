@@ -1,11 +1,12 @@
 <%= provide(:title, "Entrar") %>
-<div class="container", style="margin-top: 10px">
+<div class="container", style="margin-top: 10px;">
 
   <%= form_for(:session, url: login_path, html: { class: "form-signin",
             style:"border-radius: 10px; background-color: #eeeeee;" })  do |f| %>
     <h2 class="form-signin-heading">Teclee sus datos</h2> 
     <%= f.text_field :email, class: "form-control", placeholder: "Email",
-                                              required: true, autofocus: true %>
+                                              required: true, autofocus: true,
+                                              style: "margin-bottom: 10px" %>
     <%= f.password_field :password, class: "form-control", placeholder: "Contraseña",
                                               required: true %>  
     <%= link_to "(Se te olvido tu Contraseña)", new_password_reset_path %>
@@ -18,3 +19,9 @@
      <p>¿Usuario Nuevo? <%= link_to "¡Registrate ahora!", signup_path %></p>
   <% end %>
 </div> <!-- /container -->
+
+<style>
+  body {
+    background-color: #596585;
+  }
+</style>

@@ -34,6 +34,7 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.all
+    render :layout => "home_layout"
   end
 
   private

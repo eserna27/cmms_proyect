@@ -1,5 +1,5 @@
 <%= provide(:title, "Nuevo Hospital") %>
-<div class="container">
+<div class="container" style="max-width: 970px">
   <div class="page-header">
     <h1>Registro <small>Registro Hospital</small></h1>
     <div class="progress">
@@ -12,9 +12,11 @@
     <%= render 'shared/error_messages', object: f.object %>
     <h2 class="form-signin-heading">Teclee los datos del hospital</h2>
       <%= f.text_field :name, class: "form-control", placeholder: "Nombre del hospital",
-                                            required: true, autofocus: true %>
+                                            required: true, autofocus: true, 
+                                            style:"margin-bottom: 10px;" %>
       <%= f.text_field :floors, class: "form-control", placeholder: "Numero de Pisos del hospital",
-                                              required: true %>     
+                                              required: true,
+                                              style:"margin-bottom: 10px;" %>     
       <div class="panel panel-default">
         <div class="panel-heading">
           Dirección del hospital
@@ -22,27 +24,33 @@
         <div class="panel-body">
           <div class="col-xs-6">
             <%= f.text_field :street, class: "form-control", placeholder: "Calle",
-                                                  required: true %>  
+                                                  required: true,
+                                                  style:"margin-bottom: 10px;" %>  
           </div>
           <div class="col-xs-6">
             <%= f.text_field :number, class: "form-control", placeholder: "Numero",
-                                                  required: true %>  
+                                                  required: true,
+                                                  style:"margin-bottom: 10px;" %>  
           </div>
           <div class="col-xs-6">
             <%= f.text_field :postal_code, class: "form-control", placeholder: "C.P",
-                                                  required: true %>  
+                                                  required: true,
+                                                  style:"margin-bottom: 10px;" %>  
           </div>
           <div class="col-xs-6">
             <%= f.text_field :city, class: "form-control", placeholder: "Ciudad",
-                                                  required: true %>  
+                                                  required: true,
+                                                  style:"margin-bottom: 10px;" %>  
           </div>
                     <div class="col-xs-6">
             <%= f.text_field :state, class: "form-control", placeholder: "Estado",
-                                                  required: true %>  
+                                                  required: true,
+                                                  style:"margin-bottom: 10px;" %>  
           </div>
                     <div class="col-xs-6">
             <%= f.text_field :country, class: "form-control", placeholder: "Pais",
-                                                  required: true %>  
+                                                  required: true,
+                                                  style:"margin-bottom: 10px;" %>  
           </div>
         </div> 
       </div>  

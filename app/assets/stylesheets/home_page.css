@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial;
   color: #333;
@@ -476,3 +477,14 @@ p {
     background-position: 8% 17%;
   }
 }
+
+.form-signin {
+        max-width: 500px;
+        padding: 15px;
+        margin: 0 auto;
+        margin-top: 20px;
+        .form-control {
+          margin-bottom: 10px;
+        }
+      }
+

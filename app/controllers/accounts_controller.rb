@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
   	@plan = Plan.find(params[:plan_id])
   	@hospital = Hospital.find(params[:hospital_id])
   	@user = User.find(params[:user_id])
+    render :layout => "home_layout"
   end
 
   def show

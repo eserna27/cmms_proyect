@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @hospital = Hospital.find(params[:hospital_id])
+    render :layout => "home_layout"
   end
 
   def create

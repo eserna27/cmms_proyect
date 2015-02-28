@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round:400%7CVarela:400">
     <title>Sinapsis | <%= yield(:title) %></title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <%= stylesheet_link_tag 'home_page',
                                            'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -15,5 +16,18 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
+<header class="nav-bar">
+    <div class="w-container">
+      <div class="w-row">
+        <div class="w-col w-col-4 w-clearfix brand-column">
+          <div class="company">Sinapsis</div>
+        </div>
+        <nav class="w-col w-col-8 nav-column">
+        <%= link_to "Entrar", login_path, class: "nav-link sign-up" %>
+        </nav>
+      </div>
+    </div>
+  </header>
 <%= yield %>
 </body>
+

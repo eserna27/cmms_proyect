@@ -1,5 +1,5 @@
 <%= provide(:title, "Usuario Nuevo") %>
-<div class="container">
+<div class="container" style="max-width: 970px">
 <div class="page-header">
   <h1>Registro <small>Registro de usuario administrador</small></h1>
   <div class="progress">
@@ -12,13 +12,17 @@
     <%= render 'shared/error_messages', object: f.object %>
     <h2 class="form-signin-heading">Teclee sus datos</h2>
     <%= f.text_field :name, class: "form-control", placeholder: "Nombre Completo",
-                                              required: true, autofocus: true %>                 
+                                              required: true, autofocus: true, 
+                                              style:"margin-bottom: 10px;"%>                 
     <%= f.text_field :email, class: "form-control", placeholder: "Email",
-                                              required: true %>
+                                              required: true,
+                                              style:"margin-bottom: 10px;" %>
     <%= f.password_field :password, class: "form-control", placeholder: "Contraseña",
-                                              required: true %>  
+                                              required: true,
+                                              style:"margin-bottom: 10px;" %>  
     <%= f.password_field :password_confirmation, class: "form-control", 
-                                      placeholder: "Confirmación Contraseña", required: true %>  
+                                      placeholder: "Confirmación Contraseña", required: true,
+                                      style:"margin-bottom: 10px;" %>  
     <%= f.hidden_field :hospital_id, :value => @hospital.id %>
     <%= f.submit "Guardar Datos", class: "btn btn-lg btn-primary btn-block" %> 
   <% end %>

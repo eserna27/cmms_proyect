@@ -3,6 +3,7 @@ class HospitalsController < ApplicationController
   def new
   	@hospital = Hospital.new
     @plan = Plan.find(params[:plan_id])
+    render :layout => "home_layout"
   end
 
   def create
