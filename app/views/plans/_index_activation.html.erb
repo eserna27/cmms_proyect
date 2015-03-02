@@ -17,14 +17,14 @@
             <div class="panel-heading">
               <h4 class="text-center"><%= plan.name %></h4>
             </div>
-            <div class="panel-body text-center">
-              <p class="lead">
-                <strong><%= number_to_currency(plan.cost, :unit => "$") %>/año</strong>
+            <div class="panel-body">
+              <p class="lead text-center">
+                <strong>
+                <%= number_to_currency(plan.cost, :unit => "$") %>/año
+                </strong>
               </p>
+              <%= markdown(plan.description) %>
             </div>
-            <ul class="list-group list-group-flush text-center">
-            <%= markdown(plan.description) %>
-            </ul>
             <div class="panel-footer">
             <% #Plan 1 plan mas bajo %>
               <%= link_to "Elegir", new_plan_hospital_path(plan.id), 
@@ -35,4 +35,18 @@
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="page-header">
+      <h3>Nota</h3>
+    </div>
+    <div>
+      <ul>
+        <li>Cantidades en Pesos Mexicanos.</li>
+        <li>Precios preferenciales por confiar en nosotros en nuesto inicio.</li>
+        <li>Al registrarse se le enviara un correo con la información de pago.</li>
+        <li>Se tiene un tiempo de gracia para realizar el pago.</li>
+      </ul>
+    </div>
   </div>
+</div>
