@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
-
+  before_action :master_user, only: [:index]
 
   def show
   	@user = User.find(params[:id])
@@ -27,6 +27,10 @@ class UsersController < ApplicationController
    else
     render @user
    end
+  end
+
+  def index
+    @users = User.where(user_type: "normal").includes(:hospital)
   end
 
   def new

@@ -18,6 +18,12 @@
         </ul>
     </li>
     <li>
+      <%= link_to users_path do %>
+        <i class="fa fa-fw fa-users"></i>
+          Usuarios
+      <% end %>
+    </li>
+    <li>
       <%= link_to logout_path, method: "delete",  id: "" do %>
         <i class="fa fa-fw fa-power-off"></i>
         Cerrar

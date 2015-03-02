@@ -1,0 +1,27 @@
+<%= provide(:title, "Usuarios") %>
+
+<div class="page-header">
+    <h2>Cuentas</h2>
+</div>
+<div class="jumbotron" style="padding: 25px 0;">
+  <div class="container" style="margin-top: 0;">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>Hospital</td>
+          <td>Usuario</td>
+          <td>email</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.hospital.name %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
