@@ -41,10 +41,14 @@
               <div class="page-header" style="margin: 0px 0 20px;">
                 <h2 style="margin-top: 5px;">Hospital <small><%= @hospital.name %></small></h2>
               </div>
-              <h4>Nickname: <small><%= @hospital.nickname %></small></h4> 
               <p>
-              <h4>Dirección</h4>
-                <h5>Calle: <small><%= @hospital.street %></small></h5><h5>Numero: <small><%= @hospital.number %></small></h5><h5>C.P.: <small><%= @hospital.postal_code %></small></h5> <h5>Ciudad: <small><%= @hospital.city %></small></h5> <h5>Estado: <small><%= @hospital.state %></small></h5> <h5>Pais: <small><%= @hospital.country %></small></h5>
+              <h3>Dirección</h3>
+                <h4>Calle: <small><%= @hospital.street %></small></h4>
+                <h4>Numero: <small><%= @hospital.number %></small></h4>
+                <h4>C.P.: <small><%= @hospital.postal_code %></small></h4> 
+                <h4>Ciudad: <small><%= @hospital.city %></small></h4> 
+                <h4>Estado: <small><%= @hospital.state %></small></h4> 
+                <h4>Pais: <small><%= @hospital.country %></small></h4>
               </p>
             </div>
           </div>
@@ -56,10 +60,9 @@
             <div class="caption">
               <div class="page-header" style="margin: 0px 0 20px;">
                 <h2 style="margin-top: 5px;">Usuario <small><%= @user.name %></small></h2>
-              </div>
-              <h4>Nickname: <small><%= @user.nickname %></small></h4> 
+              </div> 
               <p>
-              <h4>Email: <small><%= @user.email %></small></h4>
+              <h3>Email: <small><%= @user.email %></small></h3>
               </p>
             </div>
           </div>
