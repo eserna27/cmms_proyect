@@ -9,6 +9,7 @@
     <title>Sinapsis | <%= yield(:title) %></title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <%= stylesheet_link_tag "home_page" %>
     <% if Rails.env.production? %>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -22,7 +23,6 @@
         </script>
         <meta name="google-site-verification" content="ndyNtM5tW28s3JKtcAAMKrYt5keiVfmmVt1gy_gnk48" />
     <% end %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
