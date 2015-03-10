@@ -3,6 +3,7 @@ class PasswordResetsController < ApplicationController
   before_action :valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
   def new
+    render :layout => "home_layout"
   end
 
   def create

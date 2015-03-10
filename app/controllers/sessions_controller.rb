@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   	else
       flash.now[:danger] = 'Usuario incorrecto'
-	  	render 'new'
+	  	render 'new', :layout => "home_layout"
     end
   end
 
