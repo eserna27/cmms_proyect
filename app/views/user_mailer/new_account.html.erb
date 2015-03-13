@@ -30,7 +30,18 @@
 			<p>
 				<ul>
 					<li><strong>Plan: </strong> <%= @plan.name %></li>
-					<li><strong>Costo: </strong> <%= @plan.cost %></li>
+					<li><strong>Costo: </strong> $<%= @plan.cost %></li>
+					<li><strong>IVA: </strong> $<%= (@plan.cost * 0.16) %></li>
+					<li><strong>Total: </strong>$<%= @plan.cost * 1.16 %></li>
+				</ul>
+			</p>
+			<p>
+				<h3>Cuenta Banamex</h3>
+				<ul>
+					<li>Nombre: Jazz Controls, S.A de C.V.</li>
+					<li>Sucursal: 4092</li>
+					<li>Cuenta de cheques: 70002560516</li>
+					<li>Clabe: 002580700025605169</li>
 				</ul>
 			</p>
 		</div>
