@@ -1,0 +1,89 @@
+<div class="container">
+	<div class="inner">
+		<div class="title row">
+			<img src="http://localhost:3000/assets/sinapsis-completo-26dfed7b17469ba318eaf40364deaea8.png" style="width: 200px;">
+		</div>
+
+		<div class="message">
+			<p>
+				Bienvenido a Sinapsis.
+			</p>
+			<p>
+				Sinapsis te ayudara a poder realizar tus actividades de gestion de equipo médico mas simple.
+			</p>
+			<p>
+				Nos preocupamos por que tus equipos esten en las mejores condiciones para que el trato a los pacientes 
+				siempre sea de muy buena calidad.
+			</p>
+			<p>
+				Con Sinapsis podras tener la información a tu mano cuando la necesites, ademas de poder utilizar los espacios donde almacenabas esta información en áreas de trabajo.
+			</p>
+			<p>
+				Sinapsis se puede usar desde el momento en el que te registras no necesitas mas para su uso.
+			</p>
+		</div>
+		<div class="pay">
+			<h3><strong>Información de Pago</strong></h3>
+			<p>
+				El pago por el servicio de Sinapsis se puede realizar dentro de los siguientes 15 días al registro.
+			</p>
+			<p>
+				<ul>
+					<li><strong>Plan: </strong> <%= @plan.name %></li>
+					<li><strong>Costo: </strong> <%= @plan.cost %></li>
+				</ul>
+			</p>
+		</div>
+		<div class="bye">
+			<p>
+				Muchas gracias por la atención y ante cualquier duda o aclaración puede enviarlas a contacto@sinapsis-cmms.com
+			</p>
+		</div>
+	</div>
+</div>
+
+<style>
+	.container {
+		max-width: 900px;
+		height: 500px;
+		border-style: solid;
+		border-color: white;
+		border-width: 2px;
+	}
+
+	.inner {
+		margin: 20px;
+	}
+
+	.title {
+		background: rgb(51, 51, 51);
+		color: white;
+		margin: -20px;
+		padding-left: 20px;
+		margin-bottom: 20px;
+		font-family: sans-serif;
+	}
+
+	.message {
+		font-family: sans-serif;
+		background-color: rgba(128, 128, 128, 0.22);
+		margin: -20px;
+		padding: 20px;
+	}
+
+	.pay {
+		font-family: sans-serif;
+		margin: -20px;
+		background-color: rgba(128, 128, 128, 0.61);
+		padding: 20px;
+		margin-top: 20px;
+	}
+
+	.bye {
+		margin: -20px;
+		padding: 20px;
+		font-family: sans-serif;
+		background-color: rgba(95, 93, 93, 0.99);
+		color: white;
+	}
+</style>

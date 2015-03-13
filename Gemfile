@@ -18,6 +18,7 @@ gem "letter_opener", :group => :development
 gem 'fog'
 gem 'rmagick'
 gem 'faker', '1.4.2'
+gem 'rqrcode_png'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

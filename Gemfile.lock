@@ -219,6 +219,10 @@ GEM
       json (~> 1.4)
     redcarpet (3.2.0)
     rmagick (2.13.3)
+    rqrcode (0.4.2)
+    rqrcode_png (0.1.5)
+      chunky_png
+      rqrcode
     ruby-progressbar (1.7.0)
     sass (3.4.7)
     sass-rails (5.0.0.beta1)
@@ -287,6 +291,7 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   redcarpet
   rmagick
+  rqrcode_png
   sass-rails (= 5.0.0.beta1)
   sdoc (= 0.4.0)
   spring (= 1.1.3)

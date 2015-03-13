@@ -22,6 +22,8 @@ class AccountsController < ApplicationController
     @user = User.find(@account.user_id)
     if @account.save
       log_in @user
+      @plan = Plan.find(@account.plan_id)
+      UserMailer.new_account(@user,@plan).deliver_now
       redirect_to user_path(@user)
     else
       render 'new'

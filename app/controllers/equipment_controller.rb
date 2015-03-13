@@ -1,4 +1,5 @@
 class EquipmentController < ApplicationController
+  require 'rqrcode_png'
 	before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :equipment_limit, only: [:new]
@@ -21,6 +22,7 @@ class EquipmentController < ApplicationController
     if @equipment.save
       flash[:success] = "Equipo Creado"
       current_hospital.equipments_quantity = current_hospital.equipments_quantity + 1
+      qr_code_generate(@equipment)
       redirect_to hospital_equipment_path(current_hospital, @equipment)
     else
       render 'new'
@@ -41,6 +43,7 @@ class EquipmentController < ApplicationController
     @area = Area.find(@subarea.area_id)
     @contact = @area.contact
     @hospital = Hospital.find(params[:hospital_id])
+    @qr_code = qr_code_generate(@equipment)
   end
 
   def edit
@@ -71,7 +74,7 @@ class EquipmentController < ApplicationController
     def equipment_params
       params.require(:equipment).permit(:equipment_type_id, :brand_id, :hospital_id,
                                           :model, :serial_number, :image, :remote_image_url, 
-                                            :lifetime, :year_manufacture, :subarea_id)
+                                            :lifetime, :year_manufacture, :subarea_id, :qr_code)
     end
 
     def equipment_limit
@@ -80,5 +83,10 @@ class EquipmentController < ApplicationController
         flash[:danger] = "Limite de equipos alcanzado"
         redirect_to current_user
       end
+    end
+
+    def qr_code_generate(equipment)
+      url = "http://localhost:3000/"+hospital_equipment_path(current_hospital, equipment)
+      RQRCode::QRCode.new(url).to_img.resize(200,200).to_data_url
     end
 end
