@@ -20,8 +20,6 @@ class EquipmentController < ApplicationController
   	@equipment = Equipment.new(equipment_params)
     if @equipment.save
       flash[:success] = "Equipo Creado"
-      current_hospital.equipments_quantity = current_hospital.equipments_quantity + 1
-      qr_code_generate(@equipment)
       redirect_to hospital_equipment_path(current_hospital, @equipment)
     else
       render 'new'
@@ -71,15 +69,19 @@ class EquipmentController < ApplicationController
 
     def equipment_params
       @last = @hospital.equipments.order(':id_list DESC').last
-      id_list = @last.id_list + 1
+      if @last.nil? 
+        @id_list = 1
+      else
+        @id_list = @last.id_list + 1
+      end
       params.require(:equipment).permit(:equipment_type_id, :brand_id, :hospital_id,
                                           :model, :serial_number, :image, :remote_image_url, :lifetime, 
-                                            :year_manufacture, :subarea_id).merge(:id_list => id_list)
+                                            :year_manufacture, :subarea_id).merge(:id_list => @id_list)
     end
 
     def equipment_limit
       @current_hospital = current_hospital
-      if @current_hospital.equipments_quantity > @current_hospital.limit_equipments
+      if @current_hospital.equipments.count > @current_hospital.limit_equipments
         flash[:danger] = "Limite de equipos alcanzado"
         redirect_to current_user
       end
