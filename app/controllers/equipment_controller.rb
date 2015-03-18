@@ -75,12 +75,8 @@ class EquipmentController < ApplicationController
       @last = @hospital.equipments.order(':id_list DESC').last
       id_list = @last.id_list + 1
       params.require(:equipment).permit(:equipment_type_id, :brand_id, :hospital_id,
-                                          :model, :serial_number, :image, :remote_image_url, 
-<<<<<<< HEAD
-                                            :lifetime, :year_manufacture, :subarea_id, :qr_code)
-=======
-                                            :lifetime, :year_manufacture, :subarea_id).merge(:id_list => id_list)
->>>>>>> qr-code
+                                          :model, :serial_number, :image, :remote_image_url, :lifetime, 
+                                            :year_manufacture, :subarea_id).merge(:id_list => id_list)
     end
 
     def equipment_limit
