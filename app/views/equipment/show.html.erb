@@ -13,12 +13,6 @@
       <div class="col-xs-16 col-sm-12">
         <div class="col-xs-6 col-sm-4" id="equipment_data">
           <div class="panel panel-default" style="border-color: #eeeeee;">
-<<<<<<< HEAD
-            <div class="panel-body" style="background: #eeeeee;">
-              <%= image_tag @equipment.image_url.to_s, data_src: "holder.js/148x148", alt:"148x148", 
-              style: "width: 148px; height: 148px; margin-left: 21%; background: white;"%>
-              <%= image_tag(@qr_code)%>
-=======
             <div class="panel-body" style="background: #eeeeee;">   
               <% if @equipment.image_url.to_s != "" %>
                 <%= image_tag @equipment.image_url.to_s, alt:"148x148", 
@@ -26,7 +20,6 @@
               <% else %>
                 <%= image_tag("stethoscope6.png", data_src: "holder.js/148x148", alt:"80x80", style: "height: 148px;")%>
               <% end %>
->>>>>>> qr-code
             </div>
           </div>
         </div>
