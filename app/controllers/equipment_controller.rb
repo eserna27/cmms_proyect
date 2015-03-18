@@ -1,5 +1,4 @@
 class EquipmentController < ApplicationController
-  require 'rqrcode_png'
 	before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :equipment_limit, only: [:new]
@@ -31,9 +30,9 @@ class EquipmentController < ApplicationController
 
   def index
     if params[:subarea_id].nil?
-  	   @equipments = Equipment.where(hospital: params[:hospital_id]).order(':id_list ASC')
+  	   @equipments = Equipment.where(hospital: params[:hospital_id]).order('id_list ASC')
     else
-      @equipments = Equipment.where(hospital: params[:hospital_id]).where(subarea_id: params[:subarea_id]).order(':id_list ASC')
+      @equipments = Equipment.where(hospital: params[:hospital_id]).where(subarea_id: params[:subarea_id]).order('id_list ASC')
     end
   end
 
@@ -43,7 +42,6 @@ class EquipmentController < ApplicationController
     @area = Area.find(@subarea.area_id)
     @contact = @area.contact
     @hospital = Hospital.find(params[:hospital_id])
-    @qr_code = qr_code_generate(@equipment)
   end
 
   def edit
@@ -87,8 +85,4 @@ class EquipmentController < ApplicationController
       end
     end
 
-    def qr_code_generate(equipment)
-      url = "http://localhost:3000/"+hospital_equipment_path(current_hospital, equipment)
-      RQRCode::QRCode.new(url).to_img.resize(200,200).to_data_url
-    end
 end
