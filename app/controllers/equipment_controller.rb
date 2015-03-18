@@ -31,9 +31,9 @@ class EquipmentController < ApplicationController
 
   def index
     if params[:subarea_id].nil?
-  	   @equipments = Equipment.where(hospital: params[:hospital_id])
+  	   @equipments = Equipment.where(hospital: params[:hospital_id]).order(':id_list ASC')
     else
-      @equipments = Equipment.where(hospital: params[:hospital_id]).where(subarea_id: params[:subarea_id])
+      @equipments = Equipment.where(hospital: params[:hospital_id]).where(subarea_id: params[:subarea_id]).order(':id_list ASC')
     end
   end
 
@@ -72,9 +72,15 @@ class EquipmentController < ApplicationController
   private
 
     def equipment_params
+      @last = @hospital.equipments.order(':id_list DESC').last
+      id_list = @last.id_list + 1
       params.require(:equipment).permit(:equipment_type_id, :brand_id, :hospital_id,
                                           :model, :serial_number, :image, :remote_image_url, 
+<<<<<<< HEAD
                                             :lifetime, :year_manufacture, :subarea_id, :qr_code)
+=======
+                                            :lifetime, :year_manufacture, :subarea_id).merge(:id_list => id_list)
+>>>>>>> qr-code
     end
 
     def equipment_limit

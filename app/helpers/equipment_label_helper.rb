@@ -1,0 +1,2 @@
+module EquipmentLabelHelper
+end

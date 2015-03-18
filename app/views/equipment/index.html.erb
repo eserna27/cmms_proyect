@@ -9,6 +9,7 @@
 	  	<thead>
 	  		<tr>
 	  			<td><strong>Imagen</strong></td>
+	  			<td class="text-center"><strong>ID</strong></td>
 	  			<td class="text-center"><strong>Modelo</strong></td>
 	  			<td class="text-center"><strong>Num. Serie</strong></td>
 	  			<td class="text-center"><strong>Marca</strong></td>
@@ -23,10 +24,15 @@
 				
 				<td>
 					<div class="media-left">
+					<% if equipment.image_url.to_s != "" %>
 						<%= image_tag equipment.image_url.to_s, data_src: "holder.js/80x80", alt:"80x80", style: "width: 80px; height: 80px;"%>  
+					<% else %>
+						<%= image_tag("stethoscope6.png", data_src: "holder.js/80x80", alt:"80x80", style: "height: 80px;")%>
+					<% end %>
 					</div>
 				</td>
 					<div class="media-body">
+					<td class="text-center"><%= equipment.id_list %></td>
 					<td class="text-center"><%= equipment.model %></td>
 					<td class="text-center"><%= equipment.serial_number %></td>
 					<td class="text-center"><%= equipment.brand_name %></td>

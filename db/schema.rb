@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150313192539) do
+=======
+ActiveRecord::Schema.define(version: 20150317183122) do
+>>>>>>> qr-code
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -59,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150313192539) do
     t.integer  "hospital_id"
     t.integer  "subarea_id"
     t.string   "image"
+    t.integer  "id_list"
   end
 
   create_table "equipment_types", force: true do |t|

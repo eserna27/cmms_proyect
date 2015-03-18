@@ -1,0 +1,2 @@
+class EquipmentLabelController < ApplicationController
+end
