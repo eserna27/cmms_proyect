@@ -11,6 +11,7 @@
           <td>Hospital</td>
           <td>Usuario</td>
           <td>email</td>
+          <td>account</td>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,8 @@
             <td><%= user.hospital.name %></td>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
+            <td><%= user.hospital.account.id %></td>
+            <td><%= user.hospital.account.activated %></td>
           </tr>
         <% end %>
       </tbody>

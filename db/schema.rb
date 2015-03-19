@@ -11,18 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150313192539) do
-=======
-ActiveRecord::Schema.define(version: 20150317183122) do
->>>>>>> qr-code
+ActiveRecord::Schema.define(version: 20150318221824) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
     t.integer  "plan_id"
     t.integer  "hospital_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "activated",   default: true
   end
 
   create_table "areas", force: true do |t|
