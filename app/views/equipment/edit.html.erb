@@ -2,7 +2,11 @@
 
   <div class="page-header">
     <h1>
-    <%= image_tag @equipment.image_url.to_s, data_src: "holder.js/100x100", alt:"100x100", style: "width: 100px; margin-top: -45px; margin-right: 10px; height: 100px;", class: "pull-left"%>
+      <% if @equipment.image_url.to_s != "" %>
+        <%= image_tag @equipment.image_url.to_s, data_src: "holder.js/100x100", alt:"100x100", style: "width: 100px; margin-top: -45px; margin-right: 10px; height: 100px;", class: "pull-left"%>
+      <% else %>
+        <%= image_tag("stethoscope6.png",data_src: "holder.js/100x100", alt:"100x100", style: "width: 100px; margin-top: -15px; margin-right: 10px;", class: "pull-left")%>
+      <% end %>
       Editar Equipo 
       <small>Ubicación: <small> <strong>Area: </strong> <%= @equipment.subarea.area_name %>
       <strong>Subarea:</strong> <%= @equipment.subarea_name %></small></small>
