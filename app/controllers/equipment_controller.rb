@@ -80,7 +80,7 @@ class EquipmentController < ApplicationController
   private
 
     def equipment_params
-      @last = @hospital.equipments.order(':id_list DESC').last
+      @last = @hospital.equipments.order('id_list DESC').last
       if @last.nil? 
         @id_list = 1
       else
