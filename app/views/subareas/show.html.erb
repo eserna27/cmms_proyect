@@ -156,7 +156,11 @@
 										
 										<td>
 											<div class="media-left">
-												<%= image_tag equipment.image_url.to_s, data_src: "holder.js/80x80", alt:"80x80", style: "width: 80px; height: 80px;"%>  
+												<% if equipment.image_url.to_s != "" %>
+													<%= image_tag equipment.image_url.to_s, data_src: "holder.js/80x80", alt:"80x80", style: "width: 80px; height: 80px;"%>  
+												<% else %>
+													<%= image_tag("stethoscope6.png", data_src: "holder.js/80x80", alt:"80x80", style: "height: 80px;")%>
+												<% end %> 
 											</div>
 										</td>
 											<div class="media-body">
