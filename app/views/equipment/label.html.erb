@@ -1,0 +1,33 @@
+<%= provide(:title, "Etiqueta" ) %>
+  <div class="page-header">
+    <h1>
+      Etiqueta 
+      <input class="btn pull-right" style="background-color: rgb(96, 104, 161); color: white;" 
+        type="button" value="Imprimir" onclick="javascript:printDiv('label')" />
+    </h1>
+  </div>
+<div class="jumbotron" id="label" style="padding: 25px 0;">
+  <div class="container" 
+        style="margin-top: 0; padding-left: 20px; padding: 10px; width: 250px;
+                                  margin-left: 25px; background-color: white; border-style: groove">
+      <h5><strong>Hospital: </strong><%= @hospital.name %></h5>
+      <h5><strong>ID: </strong><%= @equipment.id_list %></h5>
+      <h5><strong>Modelo: </strong><%= @equipment.model %></h5>
+      <h5><strong>Num. Serie: </strong><%= @equipment.serial_number %></h5>
+      <h5><strong>Área: </strong><%= @equipment.subarea.area_name %></h5>
+      <h5><strong>Subárea: </strong><%= @equipment.subarea_name %></h5>
+      <%= image_tag @qr, style:"margin-left:10px" %>
+      <h10 class="pull-right" style="font-size: smaller; ">Hecho en <strong>Sinapsis-cmms.com</strong></h10>
+    </div>
+  </div>
+</div>
+<script languaje="javascript" type="text/javascript">
+  function printDiv(divID) {
+    var divElements = document.getElementById(divID).innerHTML;
+    var oldPage = document.body.innerHTML;
+
+    document.body.innerHTML = "<html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'><title></title></head><body>"+ divElements + "</body></html>";
+      window.print();
+      document.body.innerHTML = oldPage;
+  }
+</script>

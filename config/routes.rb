@@ -29,7 +29,9 @@ Rails.application.routes.draw do
       resources :areas
     end
     resources :areas
-    resources :equipment
+    resources :equipment do
+      get 'label' => 'equipment#label'
+    end
     resources :equipment_type
     resources :brands
     resources :areas do

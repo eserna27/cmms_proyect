@@ -1,5 +1,6 @@
 class EquipmentController < ApplicationController
-	before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
+	require 'rqrcode_png'
+  before_action :logged_in_user, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :correct_hospital, only: [:show, :edit, :update, :create, :new, :destroy, :index]
   before_action :equipment_limit, only: [:new]
 
@@ -65,6 +66,17 @@ class EquipmentController < ApplicationController
    end
  end
 
+ def label
+   @hospital = Hospital.find(params[:hospital_id])
+   @equipment = @hospital.equipments.find(params[:equipment_id])
+    if Rails.env.production?
+      @qr = RQRCode::QRCode.new("http://sinapsis-cmms.com"+
+    hospital_equipment_path(@hospital, @equipment), :size => 10).to_img.resize(200,200).to_data_url
+    else
+      @qr = RQRCode::QRCode.new("http://localhost:3000"+
+    hospital_equipment_path(@hospital, @equipment), :size => 10).to_img.resize(200,200).to_data_url
+    end
+ end
   private
 
     def equipment_params

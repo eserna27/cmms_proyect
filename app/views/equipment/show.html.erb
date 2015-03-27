@@ -2,6 +2,9 @@
   <div class="page-header">
     <h1>
     <%=  @equipment.model %> <small><strong> ID: </strong><%= @equipment.id_list %></small>
+    <%= link_to "Etiqueta", hospital_equipment_label_path(@hospital, @equipment), 
+                  class: "btn pull-right", style: "margin-right: 21px; color: white; 
+                    margin-top: 10px; background-color: rgb(96, 104, 161);", target: "_blank" %> 
     <%= link_to "Editar", edit_hospital_equipment_path(@hospital, @equipment), 
                   class: "btn pull-right", style: "margin-right: 21px; color: cornflowerblue; 
                     margin-top: 10px;" %> 
