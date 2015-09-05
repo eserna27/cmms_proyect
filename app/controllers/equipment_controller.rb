@@ -81,13 +81,13 @@ class EquipmentController < ApplicationController
 
     def equipment_params
       @last = @hospital.equipments.order('id_list DESC').first
-      if @last.nil? 
+      if @last.nil?
         @id_list = 1
       else
         @id_list = @last.id_list + 1
       end
       params.require(:equipment).permit(:equipment_type_id, :brand_id, :hospital_id,
-                                          :model, :serial_number, :image, :remote_image_url, :lifetime, 
+                                          :model, :serial_number, :image, :remote_image_url, :lifetime,
                                             :year_manufacture, :subarea_id).merge(:id_list => @id_list)
     end
 

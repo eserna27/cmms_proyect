@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318221824) do
+ActiveRecord::Schema.define(version: 20150617210331) do
 
-  create_table "accounts", force: true do |t|
+  create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "plan_id"
     t.integer  "hospital_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.boolean  "activated",   default: true
   end
 
-  create_table "areas", force: true do |t|
+  create_table "areas", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "floor"
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.integer  "hospital_id"
   end
 
-  create_table "brands", force: true do |t|
+  create_table "brands", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "hospital_id"
   end
 
-  create_table "contacts", force: true do |t|
+  create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "email"
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.integer  "hospital_id"
   end
 
-  create_table "equipment", force: true do |t|
+  create_table "equipment", force: :cascade do |t|
     t.integer  "equipment_type_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "model"
     t.string   "serial_number"
     t.integer  "year_manufacture"
@@ -61,9 +61,10 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.integer  "subarea_id"
     t.string   "image"
     t.integer  "id_list"
+    t.boolean  "scheduled",         default: false
   end
 
-  create_table "equipment_types", force: true do |t|
+  create_table "equipment_types", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",    null: false
@@ -74,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.integer  "hospital_id"
   end
 
-  create_table "hospitals", force: true do |t|
+  create_table "hospitals", force: :cascade do |t|
     t.string   "name"
     t.string   "street"
     t.integer  "number"
@@ -94,7 +95,7 @@ ActiveRecord::Schema.define(version: 20150318221824) do
 
   add_index "hospitals", ["nickname"], name: "index_hospitals_on_nickname", unique: true
 
-  create_table "plans", force: true do |t|
+  create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -104,14 +105,22 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.integer  "max_area"
   end
 
-  create_table "subareas", force: true do |t|
+  create_table "schedulings", force: :cascade do |t|
+    t.integer  "equipment_id"
+    t.datetime "starts_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "hospital_id"
+  end
+
+  create_table "subareas", force: :cascade do |t|
     t.string   "name"
     t.integer  "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "suppliers", force: true do |t|
+  create_table "suppliers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.text     "description"
@@ -119,7 +128,7 @@ ActiveRecord::Schema.define(version: 20150318221824) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",                         null: false
