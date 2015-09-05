@@ -35,7 +35,8 @@
             	<% if @equipments.empty? %>
             		No hay equipos
             	<% else %>
-								<table class="table table-hover table-responsive" style="margin-bottom: 0px;">
+              <div class="table-responsive">
+								<table class="table table-hover" style="margin-bottom: 0px;">
 									<thead>
 										<tr>
 											<th>Modelo</th>
@@ -51,6 +52,7 @@
 										<% end %>
 									</tbody>
 								</table>
+              </div>
 								<%= link_to "Todos", hospital_equipment_index_path(current_hospital), class: "btn pull-right" %>
 							<% end %>
             </div>
@@ -67,6 +69,7 @@
 							<% if @areas.empty? %>
 								No hay áreas
 							<% else %>
+              <div class="table-responsive">
 								<table class="table table-hover table-responsive" style="margin-bottom: 0px;">
 									<thead>
 										<tr>
@@ -96,6 +99,7 @@
 										<% end %>
 									</tbody>
 								</table>
+              </div>
 								<%= link_to "Todas", hospital_floors_path(current_hospital), class: "btn pull-right" %>
 		        	<% end %>
 		       	</div>
