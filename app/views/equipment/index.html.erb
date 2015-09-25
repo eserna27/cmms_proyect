@@ -20,9 +20,9 @@
 	  	<tbody>
 	  	<div class="media">
 			<% @equipments.each do |equipment| %>
-				<tr onclick="location.href='<%= hospital_equipment_path(current_hospital, equipment) %>'">
+				<tr onclick="location.href='<%= hospital_equipment_path(current_hospital, equipment) %>'"  style="cursor: pointer;">
 
-				<td style="cursor: pointer;">
+				<td>
 					<div class="media-left">
 					<% if equipment.image_url.to_s != "" %>
 						<%= image_tag equipment.image_url.to_s, data_src: "holder.js/80x80", alt:"80x80", style: "width: 80px; height: 80px;"%>
