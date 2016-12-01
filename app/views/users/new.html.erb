@@ -8,24 +8,24 @@
   </div>
 </div>
   <%= form_for(@user, url:  plan_hospital_users_path, html: { class: "form-signin",
-            style:"border-radius: 10px; background-color: #eeeeee;" })  do |f| %>
+            style:"border-radius: 10px; background-color: #eeeeee; padding: 20px;" })  do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <h2 class="form-signin-heading">Teclee sus datos</h2>
     <%= f.text_field :name, class: "form-control", placeholder: "Nombre Completo",
-                                              required: true, autofocus: true, 
-                                              style:"margin-bottom: 10px;"%>                 
+                                              required: true, autofocus: true,
+                                              style:"margin-bottom: 10px;"%>
     <%= f.text_field :email, class: "form-control", placeholder: "Email",
                                               required: true,
                                               style:"margin-bottom: 10px;" %>
     <%= f.password_field :password, class: "form-control", placeholder: "Contraseña",
                                               required: true,
-                                              style:"margin-bottom: 10px;" %>  
-    <%= f.password_field :password_confirmation, class: "form-control", 
+                                              style:"margin-bottom: 10px;" %>
+    <%= f.password_field :password_confirmation, class: "form-control",
                                       placeholder: "Confirmación Contraseña", required: true,
-                                      style:"margin-bottom: 10px;" %>  
+                                      style:"margin-bottom: 10px;" %>
     <%= f.hidden_field :hospital_id, :value => @hospital.id %>
     <%= f.hidden_field :user_type, :value => "normal" %>
-    <%= f.submit "Guardar Datos", class: "btn btn-lg btn-primary btn-block" %> 
+    <%= f.submit "Guardar Datos", class: "btn btn-lg btn-primary btn-block" %>
   <% end %>
 
 </div> <!-- /container -->
