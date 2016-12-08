@@ -40,9 +40,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to new_plan_hospital_user_account_path(params[:plan_id],params[:hospital_id],@user.id)
+    @user = User.create(user_params)
+    if @user
+      redirect_to new_plan_hospital_user_account_path(params[:plan_id],params[:hospital_id], @user.id)
     else
       render 'new'
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, 
+      params.require(:user).permit(:name, :email, :password, :password_confirmation,
         :hospital_id, :user_type)
     end
 end

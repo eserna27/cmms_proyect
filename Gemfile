@@ -13,13 +13,14 @@ gem 'rails-html-sanitizer', '1.0.1'
 gem 'sdoc',                 '0.4.0', group: :doc
 gem 'redcarpet'
 gem 'chosen-rails'
-gem 'carrierwave' 
+gem 'carrierwave'
 gem "letter_opener", :group => :development
 gem 'fog'
 gem 'rmagick'
 gem 'faker', '1.4.2'
 gem 'rqrcode_png'
 gem 'imgkit'
+gem 'devise'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

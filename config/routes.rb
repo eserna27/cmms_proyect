@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   get     'login'      =>  'sessions#new'
   post    'login'      =>  'sessions#create'
   delete  'logout'     =>  'sessions#destroy'
-  get     'noaccount'   =>  'static_pages#noaccount'
+  get     'noaccount'  =>  'static_pages#noaccount'
+  get     'new_home'   =>  'new_static_pages#home'
 
-  resources :users 
+  resources :users
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :equipment_type
   resources :brands
-  resources :equipment 
+  resources :equipment
   resources :hospitals
   resources :subareas
   resources :areas
@@ -45,7 +46,7 @@ Rails.application.routes.draw do
     resources :plans
     resources :accounts
   end
-  resources :accounts 
+  resources :accounts
   resources :contacts
   resources :plans do
     resources :hospitals,  only: [ :new, :create ] do
