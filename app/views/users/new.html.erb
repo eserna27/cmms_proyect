@@ -9,7 +9,7 @@
 </div>
   <%= form_for(@user, url:  plan_hospital_users_path, html: { class: "form-signin",
             style:"border-radius: 10px; background-color: #eeeeee; padding: 20px;" })  do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+    <%= render 'shared/error_messages', object: @user %>
     <h2 class="form-signin-heading">Teclee sus datos</h2>
     <%= f.text_field :name, class: "form-control", placeholder: "Nombre Completo",
                                               required: true, autofocus: true,

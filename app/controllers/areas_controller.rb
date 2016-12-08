@@ -50,11 +50,11 @@ class AreasController < ApplicationController
 
   def subareas_select
   	@subarea = Subarea.new
-  	 		
-  	if Integer(params[:id]) != 0 
+
+  	if Integer(params[:id]) != 0
 			@area = Area.find(params[:id])
 			@areas = Area.where(floor: @area.floor).where(hospital_id: params[:hospital_id])
-			@subareas = Subarea.where(area_id: params[:id])			
+			@subareas = Subarea.where(area_id: params[:id])
 		else
 			@subareas = nil
 		end
@@ -74,7 +74,7 @@ class AreasController < ApplicationController
 		  else
 		    format.html { render new_area_path }
         format.js {}
-		  end		
+		  end
 		end
     @floors = floors_hospital
 		@areas = Area.where(floor: @area.floor).where(hospital_id: params[:hospital_id])
@@ -84,7 +84,7 @@ class AreasController < ApplicationController
     def area_params
       params.require(:area).permit(:name, :description, :floor, :contact_id, :hospital_id)
     end
-    
+
     def area_limit
       @current_hospital = current_hospital
       if @current_hospital.areas_quantity > @current_hospital.limit_areas
